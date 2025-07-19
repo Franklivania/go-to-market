@@ -1,0 +1,63 @@
+name: Go to Market Actions
+
+on:
+  push:
+    branches:
+      - main
+      - dev
+  pull_request:
+    branches:
+      - main
+      - dev
+
+jobs:
+  expo-ci:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the repository
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Set up Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # Install expo-cli globally
+      - name: Install expo-cli
+        run: npm install -g expo-cli
+
+      # Install EAS CLI globally (if using EAS)
+      - name: Install EAS CLI
+        run: npm install -g eas-cli
+
+      # Cache npm dependencies
+      - name: Cache npm dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-npm-
+
+      # Install project dependencies
+      - name: Install dependencies
+        run: npm install
+
+      # Run linting
+      - name: Run ESLint
+        run: npm run lint
+
+      # Run Prettier format check
+      - name: Run Prettier check
+        run: npm run prettier-check
+
+      # Run tests (uncomment if you have Jest or other tests)
+      # - name: Run tests
+      #   run: npm run test
+
+      # Run Expo prebuild or check config
+      - name: Validate Expo project
+        run: npx expo-doctor

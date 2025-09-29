@@ -1,6 +1,7 @@
 import React from "react";
 import { Text, TextProps, StyleProp, TextStyle } from "react-native";
 import { useThemeContext } from "@/context/ThemeContext";
+import { getScaledFontSize } from "@/constants/Fonts";
 
 type TypographyVariant =
   | "h1"
@@ -29,94 +30,97 @@ interface TypographyProps extends TextProps {
 }
 
 // This function returns the base style for each variant with variable Karla font family
-const getVariantStyles = (theme: any): Record<TypographyVariant, TextStyle> => ({
-  h1: {
-    fontSize: 32,
-    fontWeight: "700",
-    lineHeight: 40,
-    fontFamily: "Karla",
-    color: theme?.colors?.textPrimary,
-  },
-  h2: {
-    fontSize: 28,
-    fontWeight: "700",
-    lineHeight: 36,
-    fontFamily: "Karla",
-    color: theme?.colors?.textPrimary,
-  },
-  h3: {
-    fontSize: 24,
-    fontWeight: "700",
-    lineHeight: 32,
-    fontFamily: "Karla",
-    color: theme?.colors?.textPrimary,
-  },
-  h4: {
-    fontSize: 20,
-    fontWeight: "600",
-    lineHeight: 28,
-    fontFamily: "Karla",
-    color: theme?.colors?.textPrimary,
-  },
-  h5: {
-    fontSize: 18,
-    fontWeight: "600",
-    lineHeight: 24,
-    fontFamily: "Karla",
-    color: theme?.colors?.textPrimary,
-  },
-  h6: {
-    fontSize: 16,
-    fontWeight: "600",
-    lineHeight: 22,
-    fontFamily: "Karla",
-    color: theme?.colors?.textPrimary,
-  },
-  subtitle: {
-    fontSize: 15,
-    fontWeight: "500",
-    lineHeight: 20,
-    fontFamily: "Karla",
-    color: theme?.colors?.textSecondary,
-  },
-  body: {
-    fontSize: 16,
-    fontWeight: "400",
-    lineHeight: 22,
-    fontFamily: "Karla",
-    color: theme?.colors?.textPrimary,
-  },
-  body2: {
-    fontSize: 14,
-    fontWeight: "400",
-    lineHeight: 20,
-    fontFamily: "Karla",
-    color: theme?.colors?.textSecondary,
-  },
-  caption: {
-    fontSize: 12,
-    fontWeight: "400",
-    lineHeight: 16,
-    fontFamily: "Karla",
-    color: theme?.colors?.textSecondary,
-  },
-  overline: {
-    fontSize: 10,
-    fontWeight: "500",
-    lineHeight: 14,
-    letterSpacing: 1.5,
-    textTransform: "uppercase",
-    fontFamily: "Karla",
-    color: theme?.colors?.textSecondary,
-  },
-  button: {
-    fontSize: 15,
-    fontWeight: "600",
-    lineHeight: 20,
-    fontFamily: "Karla",
-    color: theme?.colors?.buttonText || theme?.colors?.textPrimary,
-  },
-});
+const getVariantStyles = (theme: any): Record<TypographyVariant, TextStyle> => {
+  const s = (val: number) => getScaledFontSize(val);
+  return {
+    h1: {
+      fontSize: s(32),
+      fontWeight: "700",
+      lineHeight: s(40),
+      fontFamily: "Karla",
+      color: theme?.colors?.textPrimary,
+    },
+    h2: {
+      fontSize: s(28),
+      fontWeight: "700",
+      lineHeight: s(36),
+      fontFamily: "Karla",
+      color: theme?.colors?.textPrimary,
+    },
+    h3: {
+      fontSize: s(24),
+      fontWeight: "700",
+      lineHeight: s(32),
+      fontFamily: "Karla",
+      color: theme?.colors?.textPrimary,
+    },
+    h4: {
+      fontSize: s(20),
+      fontWeight: "600",
+      lineHeight: s(28),
+      fontFamily: "Karla",
+      color: theme?.colors?.textPrimary,
+    },
+    h5: {
+      fontSize: s(18),
+      fontWeight: "600",
+      lineHeight: s(24),
+      fontFamily: "Karla",
+      color: theme?.colors?.textPrimary,
+    },
+    h6: {
+      fontSize: s(16),
+      fontWeight: "600",
+      lineHeight: s(22),
+      fontFamily: "Karla",
+      color: theme?.colors?.textPrimary,
+    },
+    subtitle: {
+      fontSize: s(15),
+      fontWeight: "500",
+      lineHeight: s(20),
+      fontFamily: "Karla",
+      color: theme?.colors?.textSecondary,
+    },
+    body: {
+      fontSize: s(16),
+      fontWeight: "400",
+      lineHeight: s(22),
+      fontFamily: "Karla",
+      color: theme?.colors?.textPrimary,
+    },
+    body2: {
+      fontSize: s(14),
+      fontWeight: "400",
+      lineHeight: s(20),
+      fontFamily: "Karla",
+      color: theme?.colors?.textSecondary,
+    },
+    caption: {
+      fontSize: s(12),
+      fontWeight: "400",
+      lineHeight: s(16),
+      fontFamily: "Karla",
+      color: theme?.colors?.textSecondary,
+    },
+    overline: {
+      fontSize: s(10),
+      fontWeight: "500",
+      lineHeight: s(14),
+      letterSpacing: 1.5,
+      textTransform: "uppercase",
+      fontFamily: "Karla",
+      color: theme?.colors?.textSecondary,
+    },
+    button: {
+      fontSize: s(15),
+      fontWeight: "600",
+      lineHeight: s(20),
+      fontFamily: "Karla",
+      color: theme?.colors?.buttonText || theme?.colors?.textPrimary,
+    },
+  };
+};
 
 const Typography: React.FC<TypographyProps> = ({
   variant = "body",

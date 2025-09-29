@@ -1,0 +1,105 @@
+import React from 'react'
+import AppContainer from '@/layout/app-container'
+import { Image, StyleSheet, View } from 'react-native'
+import Typography from '@/components/typography'
+import Button from '@/components/button'
+import { Ionicons, MaterialIcons } from '@expo/vector-icons'
+import { colors } from '@/constants/Colours'
+
+export default function UserDashboard() {
+  let user = 'Franklin'
+
+  return (
+    <AppContainer style={{ display: 'flex', gap: 12 }}>
+      <View style={styles.header}>
+        <View>
+          <Typography variant='h3' fontWeight={300}>Good Morning</Typography>
+          <Typography>Saturday, 1:56 PM</Typography>
+        </View>
+        <Button
+          variant='outline'
+          size='icon'
+          onPress={() => { }}
+          style={{ borderColor: colors.black[600] }}
+        >
+          <Ionicons name='notifications-outline' size={24} />
+        </Button>
+      </View>
+
+      <View style={styles.banner}>
+        <View style={{ width: '50%', position: 'relative' }}>
+          <Typography variant='h4' style={styles['text-white']}>Welcome {user} </Typography>
+          <Typography variant='body' style={styles.paragraph}>
+            It is a beautiful day today, remember to smile
+          </Typography>
+        </View>
+
+        <Image
+          source={require("@/assets/images/qqquad.png")}
+          style={{
+            position: 'absolute',
+            top: 0,
+            right: 0,
+          }}
+        />
+        <Image
+          source={require("@/assets/images/avatar.png")}
+          style={{
+            width: 48,
+            height: 48,
+            // borderWidth: 1
+          }}
+        />
+      </View>
+
+      <View
+        style={{
+          width: '100%',
+          display: 'flex',
+          flexDirection: 'row',
+          alignItems: 'center',
+          gap: 2,
+          borderWidth: 2,
+          paddingHorizontal: 4,
+          paddingVertical: 4,
+          borderRadius: 8,
+          borderColor: colors.green[600],
+        }}
+      >
+        <View style={{ backgroundColor: colors.green[600], paddingHorizontal: 4, paddingVertical: 4, borderRadius: 8 }}>
+          <MaterialIcons name='info' size={24} color={colors.white[100]} />
+        </View>
+        <Typography variant='body' fontWeight={600}>Pro tip:</Typography>
+        <Typography variant='caption' style={{width: '80%'}}>You can get started by tapping the bottom right button to create your first list</Typography>
+      </View>
+    </AppContainer>
+  )
+}
+
+const styles = StyleSheet.create({
+  header: {
+    width: '100%',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  banner: {
+    position: 'relative',
+    width: '100%',
+    backgroundColor: '#2B3316',
+    paddingVertical: 12,
+    paddingHorizontal: 12,
+    borderRadius: 8,
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    overflow: 'hidden'
+  },
+  'text-white': {
+    color: colors.white[100],
+  },
+  paragraph: {
+    color: colors.white[400],
+  }
+})

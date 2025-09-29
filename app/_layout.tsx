@@ -5,7 +5,7 @@ import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 import { useEffect } from "react";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
-import { QueryClient, QueryClientProvider , onlineManager } from "@tanstack/react-query";
+import { QueryClient, QueryClientProvider, onlineManager } from "@tanstack/react-query";
 import NetInfo from "@react-native-community/netinfo";
 
 import { useReactQueryFocus } from "@/hooks/useReactQueryFocus";

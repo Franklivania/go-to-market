@@ -4,7 +4,6 @@ import fetchCountries, { CountryWithStates, StateRegion } from "@/api/countries"
 import { Image } from "expo-image";
 import { Text, View } from "react-native";
 
-
 interface CountryOption {
   value: string;
   searchText: string;

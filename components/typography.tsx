@@ -138,10 +138,10 @@ const Typography: React.FC<TypographyProps> = ({
   const variantStyles = getVariantStyles(theme);
 
   const baseStyle = variantStyles[variant] || variantStyles.body;
-  
+
   // Handle italic variants
   const fontFamilyToUse = fontFamily || (italic ? "Karla-Italic" : "Karla");
-  
+
   const customStyle: TextStyle = {
     ...(color ? { color } : {}),
     ...(fontWeight ? { fontWeight } : {}),

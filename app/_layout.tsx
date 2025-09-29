@@ -5,13 +5,13 @@ import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 import { useEffect } from "react";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import NetInfo from '@react-native-community/netinfo';
-import { onlineManager } from '@tanstack/react-query';
+import { QueryClient, QueryClientProvider , onlineManager } from "@tanstack/react-query";
+import NetInfo from "@react-native-community/netinfo";
+
 import { useReactQueryFocus } from "@/hooks/useReactQueryFocus";
 
-onlineManager.setEventListener(setOnline => {
-  return NetInfo.addEventListener(state => {
+onlineManager.setEventListener((setOnline) => {
+  return NetInfo.addEventListener((state) => {
     setOnline(!!state.isConnected);
   });
 });
@@ -20,7 +20,7 @@ SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
   const [fontsLoaded] = useFonts({
-    "Karla": require("../assets/fonts/Karla-Font.ttf"),
+    Karla: require("../assets/fonts/Karla-Font.ttf"),
     "Karla-Italic": require("../assets/fonts/Karla-Italic.ttf"),
   });
   const queryClient = new QueryClient();

@@ -19,18 +19,14 @@ import { Text } from "react-native";
 import { getFontSize } from "@/lib/font";
 
 export function PriceTag() {
-  return (
-    <Text style={{ fontSize: getFontSize(16) }}>$19.99</Text>
-  );
+  return <Text style={{ fontSize: getFontSize(16) }}>$19.99</Text>;
 }
 ```
 
 With line height
 
 ```tsx
-<Text style={{ fontSize: getFontSize(14), lineHeight: getFontSize(20) }}>
-  Scaled text
-</Text>
+<Text style={{ fontSize: getFontSize(14), lineHeight: getFontSize(20) }}>Scaled text</Text>
 ```
 
 Clamping configuration
@@ -47,5 +43,3 @@ Notes
 - Base width is 375; change `BASE_WIDTH` to retarget.
 - Scaling ignores OS fontScale to keep design consistency.
 - For typography variants, prefer the `Typography` component which already uses the scaler.
-
-

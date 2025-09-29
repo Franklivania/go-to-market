@@ -1,9 +1,9 @@
-import { useMemo } from "react";
+import React, { useMemo } from "react";
 import { useQuery } from "@tanstack/react-query";
 import fetchCountries, { CountryWithStates, StateRegion } from "@/api/countries";
 import { Image } from "expo-image";
 import { Text, View } from "react-native";
-import React from "react";
+
 
 interface CountryOption {
   value: string;
@@ -32,7 +32,15 @@ interface StateOption {
   nameOnly: React.ReactElement;
   label: React.ReactElement;
   code?: string;
-  type: 'state' | 'province' | 'region' | 'territory' | 'federal district' | 'country' | 'municipality' | 'autonomous region';
+  type:
+    | "state"
+    | "province"
+    | "region"
+    | "territory"
+    | "federal district"
+    | "country"
+    | "municipality"
+    | "autonomous region";
   countryName: string;
 }
 
@@ -93,19 +101,19 @@ export default function useCountryOptions() {
           contentFit="contain"
         />
       );
-      
+
       const nameElement = <Text>{common}</Text>;
       const countryCodeElement = <Text>{fullCode}</Text>;
 
       const label = (
-        <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
+        <View style={{ flexDirection: "row", alignItems: "center", gap: 8 }}>
           {flagElement}
           {nameElement}
         </View>
       );
 
       const fullCurrency = (
-        <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
+        <View style={{ flexDirection: "row", alignItems: "center", gap: 8 }}>
           {flagElement}
           <Text>{currencyName}</Text>
         </View>
@@ -118,7 +126,7 @@ export default function useCountryOptions() {
         currencyName,
         region,
         subregion,
-        capital?.join(' '),
+        capital?.join(" "),
         ...(languages ? Object.values(languages) : []),
       ].filter(Boolean);
       const searchText = searchTextParts.join(" ");
@@ -148,25 +156,20 @@ export default function useCountryOptions() {
 
   // Helper function to get states for a specific country
   const getStatesForCountry = (countryName: string): StateOption[] => {
-    const country = countries.find(c => c.name.common === countryName);
+    const country = countries.find((c) => c.name.common === countryName);
     if (!country?.states || country.states.length === 0) return [];
 
     return country.states.map((state) => {
       const nameElement = <Text>{state.name}</Text>;
-      
+
       const label = (
-        <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
+        <View style={{ flexDirection: "row", alignItems: "center", gap: 8 }}>
           <Text>{state.name}</Text>
           {state.code && <Text>({state.code})</Text>}
         </View>
       );
 
-      const searchTextParts = [
-        state.name,
-        state.code,
-        state.type,
-        countryName,
-      ].filter(Boolean);
+      const searchTextParts = [state.name, state.code, state.type, countryName].filter(Boolean);
       const searchText = searchTextParts.join(" ");
 
       return {
@@ -184,8 +187,8 @@ export default function useCountryOptions() {
   // Helper function to search countries and states
   const searchOptions = (query: string, includeStates: boolean = false) => {
     const lowerQuery = query.toLowerCase();
-    
-    const matchingCountries = countryOptions.filter(option =>
+
+    const matchingCountries = countryOptions.filter((option) =>
       option.searchText.toLowerCase().includes(lowerQuery)
     );
 
@@ -194,9 +197,9 @@ export default function useCountryOptions() {
     }
 
     const matchingStates: StateOption[] = [];
-    matchingCountries.forEach(country => {
+    matchingCountries.forEach((country) => {
       const states = getStatesForCountry(country.value);
-      const matchingCountryStates = states.filter(state =>
+      const matchingCountryStates = states.filter((state) =>
         state.searchText.toLowerCase().includes(lowerQuery)
       );
       matchingStates.push(...matchingCountryStates);
@@ -210,20 +213,20 @@ export default function useCountryOptions() {
 
   // Helper function to get countries by region
   const getCountriesByRegion = (region: string) => {
-    return countryOptions.filter(option => option.region === region);
+    return countryOptions.filter((option) => option.region === region);
   };
 
   // Helper function to get popular countries (by population)
   const getPopularCountries = (limit: number = 20) => {
     return countryOptions
-      .filter(option => option.population && option.population > 0)
+      .filter((option) => option.population && option.population > 0)
       .sort((a, b) => (b.population || 0) - (a.population || 0))
       .slice(0, limit);
   };
 
-  return { 
-    countryOptions, 
-    isLoading, 
+  return {
+    countryOptions,
+    isLoading,
     error,
     getStatesForCountry,
     searchOptions,

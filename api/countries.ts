@@ -43,7 +43,10 @@ const REST_COUNTRIES_FIELDS = [
 ].join(",");
 
 // CountriesNow (free, no key) types
-interface CountriesNowStateItem { name: string; state_code?: string; }
+interface CountriesNowStateItem {
+  name: string;
+  state_code?: string;
+}
 interface CountriesNowCountryStates {
   name: string; // country name
   iso2?: string;
@@ -83,10 +86,12 @@ const fetchCountries = async (): Promise<CountryWithStates[]> => {
   }
 };
 
-async function mergeWithCountriesNowStates(countries: CountryWithStates[]): Promise<CountryWithStates[]> {
+async function mergeWithCountriesNowStates(
+  countries: CountryWithStates[]
+): Promise<CountryWithStates[]> {
   // Fetch all countries + states from CountriesNow
   // Docs: https://documenter.getpostman.com/view/1134062/T1LJjU52
-  const resp: Response = await fetch('https://countriesnow.space/api/v0.1/countries/states');
+  const resp: Response = await fetch("https://countriesnow.space/api/v0.1/countries/states");
   if (!resp.ok) {
     return countries; // graceful skip
   }
@@ -110,14 +115,17 @@ async function mergeWithCountriesNowStates(countries: CountryWithStates[]): Prom
   for (const entry of json.data) {
     const byIso2 = entry.iso2 ? iso2ToIndex.get(entry.iso2.toUpperCase()) : undefined;
     const byIso3 = !byIso2 && entry.iso3 ? iso3ToIndex.get(entry.iso3.toUpperCase()) : undefined;
-    const byName = byIso2 === undefined && byIso3 === undefined ? nameToIndex.get(entry.name.toLowerCase()) : undefined;
+    const byName =
+      byIso2 === undefined && byIso3 === undefined
+        ? nameToIndex.get(entry.name.toLowerCase())
+        : undefined;
     const idx = byIso2 ?? byIso3 ?? byName;
     if (idx === undefined) continue;
 
     const mapped: StateRegion[] = (entry.states || []).map((s) => ({
       name: s.name,
       code: s.state_code,
-      type: 'state',
+      type: "state",
     }));
     if (mapped.length > 0) {
       result[idx].states = mapped.sort((a, b) => a.name.localeCompare(b.name));

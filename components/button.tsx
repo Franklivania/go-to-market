@@ -1,12 +1,18 @@
 import { colors } from "@/constants/Colours";
 import React from "react";
-import { ActivityIndicator, GestureResponderEvent, TouchableOpacityProps, StyleProp, ViewStyle } from "react-native";
+import {
+  ActivityIndicator,
+  GestureResponderEvent,
+  TouchableOpacityProps,
+  StyleProp,
+  ViewStyle,
+} from "react-native";
 import styled from "styled-components/native";
 
 type BorderRadiusType = "flat" | "curved" | "rounded";
 type ButtonSize = "sm" | "md" | "base" | "lg" | "xl" | "icon";
 
-interface ButtonProps extends Omit<TouchableOpacityProps, 'onPress'> {
+interface ButtonProps extends Omit<TouchableOpacityProps, "onPress"> {
   label?: string;
   children?: React.ReactNode;
   onPress: (event: GestureResponderEvent) => void;
@@ -79,7 +85,7 @@ const Button: React.FC<ButtonProps> = ({
 }) => {
   // Validate that either label or children is provided
   if (!label && !children) {
-    console.warn('Button component requires either a label or children prop');
+    console.warn("Button component requires either a label or children prop");
   }
 
   return (
@@ -128,8 +134,7 @@ const ButtonWrapper = styled.TouchableOpacity<{
             : variant === "plain"
               ? "transparent"
               : colors.orange[300]};
-  border: ${({ variant }) =>
-    variant === "outline" ? `1px solid ${colors.orange[500]}` : "none"};
+  border: ${({ variant }) => (variant === "outline" ? `1px solid ${colors.orange[500]}` : "none")};
   padding-vertical: ${({ variant, size }) =>
     variant === "plain" ? "0px" : sizeStyles[size || "base"].paddingVertical}px;
   padding-horizontal: ${({ variant, size }) =>

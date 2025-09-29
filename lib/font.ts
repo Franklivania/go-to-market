@@ -43,10 +43,7 @@ export const getFontSize = (size: number): number => {
 
   // Calculate scale factor
   const scaleFactor = SCALE / BASE_WIDTH;
-  const clampedScaleFactor = Math.min(
-    Math.max(scaleFactor, config.min),
-    config.max
-  );
+  const clampedScaleFactor = Math.min(Math.max(scaleFactor, config.min), config.max);
 
   let newSize = size * clampedScaleFactor;
 

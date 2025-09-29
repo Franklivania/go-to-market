@@ -81,92 +81,81 @@ import Button from './components/button';
 
 ## Props Reference
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `label` | `string` | - | Text displayed on the button (optional if children provided) |
-| `children` | `React.ReactNode` | - | Custom content for the button (optional if label provided) |
-| `onPress` | `(event: GestureResponderEvent) => void` | - | Function called when button is pressed (required) |
-| `loading` | `boolean` | `false` | Shows loading spinner instead of text |
-| `disabled` | `boolean` | `false` | Disables button interaction |
-| `variant` | `'primary' \| 'secondary' \| 'accent' \| 'outline' \| 'plain'` | `'primary'` | Visual style variant |
-| `width` | `'full' \| 'fit'` | `'fit'` | Button width behavior |
-| `borderRadius` | `'flat' \| 'curved' \| 'rounded'` | `'curved'` | Border radius style |
-| `size` | `'sm' \| 'md' \| 'base' \| 'lg' \| 'xl' \| 'icon'` | `'base'` | Button size and font size |
-| `style` | `StyleProp<ViewStyle>` | - | Additional custom styles |
-| `activeOpacity` | `number` | `0.8` | Opacity when pressed |
-| `testID` | `string` | - | Test identifier for testing |
-| `accessibilityLabel` | `string` | - | Accessibility label |
-| `accessibilityHint` | `string` | - | Accessibility hint |
+| Prop                 | Type                                                           | Default     | Description                                                  |
+| -------------------- | -------------------------------------------------------------- | ----------- | ------------------------------------------------------------ |
+| `label`              | `string`                                                       | -           | Text displayed on the button (optional if children provided) |
+| `children`           | `React.ReactNode`                                              | -           | Custom content for the button (optional if label provided)   |
+| `onPress`            | `(event: GestureResponderEvent) => void`                       | -           | Function called when button is pressed (required)            |
+| `loading`            | `boolean`                                                      | `false`     | Shows loading spinner instead of text                        |
+| `disabled`           | `boolean`                                                      | `false`     | Disables button interaction                                  |
+| `variant`            | `'primary' \| 'secondary' \| 'accent' \| 'outline' \| 'plain'` | `'primary'` | Visual style variant                                         |
+| `width`              | `'full' \| 'fit'`                                              | `'fit'`     | Button width behavior                                        |
+| `borderRadius`       | `'flat' \| 'curved' \| 'rounded'`                              | `'curved'`  | Border radius style                                          |
+| `size`               | `'sm' \| 'md' \| 'base' \| 'lg' \| 'xl' \| 'icon'`             | `'base'`    | Button size and font size                                    |
+| `style`              | `StyleProp<ViewStyle>`                                         | -           | Additional custom styles                                     |
+| `activeOpacity`      | `number`                                                       | `0.8`       | Opacity when pressed                                         |
+| `testID`             | `string`                                                       | -           | Test identifier for testing                                  |
+| `accessibilityLabel` | `string`                                                       | -           | Accessibility label                                          |
+| `accessibilityHint`  | `string`                                                       | -           | Accessibility hint                                           |
 
 **Note:** Either `label` or `children` must be provided. All standard `TouchableOpacityProps` are supported except `onPress` (which is overridden for type safety).
 
 ## Variants
 
 ### Primary (Default)
+
 Orange background with white text - main action buttons.
 
 ```tsx
-<Button
-  label="Primary Button"
-  variant="primary"
-  onPress={() => console.log('Primary clicked')}
-/>
+<Button label="Primary Button" variant="primary" onPress={() => console.log("Primary clicked")} />
 ```
 
 ### Secondary
+
 Same styling as primary - alternative primary action.
 
 ```tsx
 <Button
   label="Secondary Button"
   variant="secondary"
-  onPress={() => console.log('Secondary clicked')}
+  onPress={() => console.log("Secondary clicked")}
 />
 ```
 
 ### Accent
+
 Yellow background with black text - highlight important actions.
 
 ```tsx
-<Button
-  label="Accent Button"
-  variant="accent"
-  onPress={() => console.log('Accent clicked')}
-/>
+<Button label="Accent Button" variant="accent" onPress={() => console.log("Accent clicked")} />
 ```
 
 ### Outline
+
 Transparent background with orange border and text - secondary actions.
 
 ```tsx
-<Button
-  label="Outline Button"
-  variant="outline"
-  onPress={() => console.log('Outline clicked')}
-/>
+<Button label="Outline Button" variant="outline" onPress={() => console.log("Outline clicked")} />
 ```
 
 ### Plain
+
 Transparent background with orange text only - minimal text buttons that fit content exactly.
 
 ```tsx
-<Button
-  label="Plain Button"
-  variant="plain"
-  onPress={() => console.log('Plain clicked')}
-/>
+<Button label="Plain Button" variant="plain" onPress={() => console.log("Plain clicked")} />
 ```
 
 ## Sizes
 
-| Size | Padding Vertical | Padding Horizontal | Font Size | Use Case |
-|------|------------------|-------------------|-----------|----------|
-| `sm` | 6px | 14px | 12px | Compact interfaces, mobile |
-| `md` | 8px | 18px | 14px | Small forms, secondary actions |
-| `base` | 9px | 25px | 15px | Standard buttons (default) |
-| `lg` | 12px | 32px | 17px | Large forms, primary actions |
-| `xl` | 16px | 40px | 20px | Hero buttons, call-to-action |
-| `icon` | 8px | 8px | 16px | Icon-only buttons, compact actions |
+| Size   | Padding Vertical | Padding Horizontal | Font Size | Use Case                           |
+| ------ | ---------------- | ------------------ | --------- | ---------------------------------- |
+| `sm`   | 6px              | 14px               | 12px      | Compact interfaces, mobile         |
+| `md`   | 8px              | 18px               | 14px      | Small forms, secondary actions     |
+| `base` | 9px              | 25px               | 15px      | Standard buttons (default)         |
+| `lg`   | 12px             | 32px               | 17px      | Large forms, primary actions       |
+| `xl`   | 16px             | 40px               | 20px      | Hero buttons, call-to-action       |
+| `icon` | 8px              | 8px                | 16px      | Icon-only buttons, compact actions |
 
 **Note:** The `plain` variant has no padding (0px) and fits content exactly.
 
@@ -184,60 +173,45 @@ Transparent background with orange text only - minimal text buttons that fit con
 ## Border Radius Types
 
 ### Flat
+
 No border radius - sharp corners.
 
 ```tsx
-<Button
-  label="Flat Button"
-  borderRadius="flat"
-  onPress={() => {}}
-/>
+<Button label="Flat Button" borderRadius="flat" onPress={() => {}} />
 ```
 
 ### Curved (Default)
+
 Small border radius - subtle rounded corners.
 
 ```tsx
-<Button
-  label="Curved Button"
-  borderRadius="curved"
-  onPress={() => {}}
-/>
+<Button label="Curved Button" borderRadius="curved" onPress={() => {}} />
 ```
 
 ### Rounded
+
 Large border radius - pill-shaped buttons.
 
 ```tsx
-<Button
-  label="Rounded Button"
-  borderRadius="rounded"
-  onPress={() => {}}
-/>
+<Button label="Rounded Button" borderRadius="rounded" onPress={() => {}} />
 ```
 
 ## Width Options
 
 ### Fit (Default)
+
 Button width adjusts to content.
 
 ```tsx
-<Button
-  label="Fit Width"
-  width="fit"
-  onPress={() => {}}
-/>
+<Button label="Fit Width" width="fit" onPress={() => {}} />
 ```
 
 ### Full
+
 Button takes full width of container.
 
 ```tsx
-<Button
-  label="Full Width"
-  width="full"
-  onPress={() => {}}
-/>
+<Button label="Full Width" width="full" onPress={() => {}} />
 ```
 
 ## Use Cases
@@ -254,7 +228,7 @@ const LoginForm = () => {
     try {
       await loginUser();
     } catch (error) {
-      console.error('Login failed:', error);
+      console.error("Login failed:", error);
     } finally {
       setIsLoading(false);
     }
@@ -263,7 +237,7 @@ const LoginForm = () => {
   return (
     <View>
       {/* Login form inputs */}
-      
+
       <Button
         label="Sign In"
         variant="primary"
@@ -274,7 +248,7 @@ const LoginForm = () => {
         loading={isLoading}
         disabled={isDisabled}
       />
-      
+
       <Button
         label="Forgot Password?"
         variant="outline"
@@ -301,7 +275,7 @@ const ProductCard = ({ product }) => {
       await addToCart(product.id);
       setIsInCart(true);
     } catch (error) {
-      console.error('Failed to add to cart:', error);
+      console.error("Failed to add to cart:", error);
     } finally {
       setIsAddingToCart(false);
     }
@@ -310,8 +284,8 @@ const ProductCard = ({ product }) => {
   return (
     <View>
       {/* Product details */}
-      
-      <View style={{ flexDirection: 'row', gap: 12 }}>
+
+      <View style={{ flexDirection: "row", gap: 12 }}>
         <Button
           label={isInCart ? "In Cart" : "Add to Cart"}
           variant={isInCart ? "accent" : "primary"}
@@ -322,7 +296,7 @@ const ProductCard = ({ product }) => {
           loading={isAddingToCart}
           disabled={isInCart}
         />
-        
+
         <Button
           label="Buy Now"
           variant="outline"
@@ -347,9 +321,9 @@ const SettingsScreen = () => {
     setIsSaving(true);
     try {
       await saveUserSettings();
-      showSuccessMessage('Settings saved successfully');
+      showSuccessMessage("Settings saved successfully");
     } catch (error) {
-      showErrorMessage('Failed to save settings');
+      showErrorMessage("Failed to save settings");
     } finally {
       setIsSaving(false);
     }
@@ -358,8 +332,8 @@ const SettingsScreen = () => {
   return (
     <View>
       {/* Settings form */}
-      
-      <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+
+      <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
         <Button
           label="Cancel"
           variant="outline"
@@ -368,7 +342,7 @@ const SettingsScreen = () => {
           borderRadius="curved"
           onPress={() => navigateBack()}
         />
-        
+
         <Button
           label="Save Changes"
           variant="primary"
@@ -391,8 +365,8 @@ const OnboardingStep = ({ step, totalSteps, onNext, onPrevious, onSkip }) => {
   return (
     <View>
       {/* Onboarding content */}
-      
-      <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+
+      <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
         <Button
           label="Skip"
           variant="outline"
@@ -401,8 +375,8 @@ const OnboardingStep = ({ step, totalSteps, onNext, onPrevious, onSkip }) => {
           borderRadius="flat"
           onPress={onSkip}
         />
-        
-        <View style={{ flexDirection: 'row', gap: 8 }}>
+
+        <View style={{ flexDirection: "row", gap: 8 }}>
           {step > 1 && (
             <Button
               label="Back"
@@ -413,7 +387,7 @@ const OnboardingStep = ({ step, totalSteps, onNext, onPrevious, onSkip }) => {
               onPress={onPrevious}
             />
           )}
-          
+
           <Button
             label={step === totalSteps ? "Get Started" : "Next"}
             variant="primary"
@@ -439,7 +413,7 @@ const ConfirmationDialog = ({ onConfirm, onCancel, isDeleting }) => {
       <Text style={styles.dialogMessage}>
         Are you sure you want to delete this item? This action cannot be undone.
       </Text>
-      
+
       <View style={styles.dialogButtons}>
         <Button
           label="Cancel"
@@ -449,7 +423,7 @@ const ConfirmationDialog = ({ onConfirm, onCancel, isDeleting }) => {
           borderRadius="curved"
           onPress={onCancel}
         />
-        
+
         <Button
           label="Delete"
           variant="primary"
@@ -473,7 +447,7 @@ const SocialActions = ({ postId, isLiked, isBookmarked }) => {
   const [isBookmarking, setIsBookmarking] = useState(false);
 
   return (
-    <View style={{ flexDirection: 'row', gap: 8 }}>
+    <View style={{ flexDirection: "row", gap: 8 }}>
       <Button
         label={isLiked ? "Liked" : "Like"}
         variant={isLiked ? "accent" : "outline"}
@@ -487,7 +461,7 @@ const SocialActions = ({ postId, isLiked, isBookmarked }) => {
         }}
         loading={isLiking}
       />
-      
+
       <Button
         label={isBookmarked ? "Saved" : "Save"}
         variant={isBookmarked ? "accent" : "outline"}
@@ -501,7 +475,7 @@ const SocialActions = ({ postId, isLiked, isBookmarked }) => {
         }}
         loading={isBookmarking}
       />
-      
+
       <Button
         label="Share"
         variant="outline"
@@ -522,46 +496,20 @@ const TextActions = () => {
   return (
     <View>
       {/* Plain variant for text-like buttons */}
-      <View style={{ flexDirection: 'row', gap: 16, alignItems: 'center' }}>
-        <Button
-          label="Terms of Service"
-          variant="plain"
-          size="sm"
-          onPress={() => openTerms()}
-        />
-        
-        <Button
-          label="Privacy Policy"
-          variant="plain"
-          size="sm"
-          onPress={() => openPrivacy()}
-        />
-        
-        <Button
-          label="Contact Support"
-          variant="plain"
-          size="sm"
-          onPress={() => openSupport()}
-        />
+      <View style={{ flexDirection: "row", gap: 16, alignItems: "center" }}>
+        <Button label="Terms of Service" variant="plain" size="sm" onPress={() => openTerms()} />
+
+        <Button label="Privacy Policy" variant="plain" size="sm" onPress={() => openPrivacy()} />
+
+        <Button label="Contact Support" variant="plain" size="sm" onPress={() => openSupport()} />
       </View>
-      
+
       {/* Inline text actions */}
-      <Text style={{ fontSize: 14, color: '#666' }}>
-        By continuing, you agree to our{' '}
-        <Button
-          label="Terms of Service"
-          variant="plain"
-          size="sm"
-          onPress={() => openTerms()}
-        />
-        {' '}and{' '}
-        <Button
-          label="Privacy Policy"
-          variant="plain"
-          size="sm"
-          onPress={() => openPrivacy()}
-        />
-        .
+      <Text style={{ fontSize: 14, color: "#666" }}>
+        By continuing, you agree to our{" "}
+        <Button label="Terms of Service" variant="plain" size="sm" onPress={() => openTerms()} />{" "}
+        and{" "}
+        <Button label="Privacy Policy" variant="plain" size="sm" onPress={() => openPrivacy()} />.
       </Text>
     </View>
   );
@@ -573,34 +521,32 @@ const TextActions = () => {
 ```tsx
 const ActionButtons = () => {
   return (
-    <View style={{ flexDirection: 'row', gap: 12 }}>
+    <View style={{ flexDirection: "row", gap: 12 }}>
       {/* Share button with icon */}
       <Button onPress={() => shareContent()} variant="outline">
-        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+        <View style={{ flexDirection: "row", alignItems: "center" }}>
           <Ionicons name="share" size={20} color="#3B82F6" />
-          <Text style={{ color: '#3B82F6', marginLeft: 6 }}>Share</Text>
+          <Text style={{ color: "#3B82F6", marginLeft: 6 }}>Share</Text>
         </View>
       </Button>
-      
+
       {/* Like button with icon */}
       <Button onPress={() => toggleLike()} variant="outline">
-        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-          <Ionicons 
-            name={isLiked ? "heart" : "heart-outline"} 
-            size={20} 
-            color={isLiked ? "#EF4444" : "#6B7280"} 
+        <View style={{ flexDirection: "row", alignItems: "center" }}>
+          <Ionicons
+            name={isLiked ? "heart" : "heart-outline"}
+            size={20}
+            color={isLiked ? "#EF4444" : "#6B7280"}
           />
-          <Text style={{ color: '#6B7280', marginLeft: 6 }}>
-            {isLiked ? "Liked" : "Like"}
-          </Text>
+          <Text style={{ color: "#6B7280", marginLeft: 6 }}>{isLiked ? "Liked" : "Like"}</Text>
         </View>
       </Button>
-      
+
       {/* Download button with icon */}
       <Button onPress={() => downloadFile()} variant="primary">
-        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+        <View style={{ flexDirection: "row", alignItems: "center" }}>
           <Ionicons name="download" size={20} color="white" />
-          <Text style={{ color: 'white', marginLeft: 6 }}>Download</Text>
+          <Text style={{ color: "white", marginLeft: 6 }}>Download</Text>
         </View>
       </Button>
     </View>
@@ -613,36 +559,32 @@ const ActionButtons = () => {
 ```tsx
 const IconOnlyButtons = () => {
   return (
-    <View style={{ flexDirection: 'row', gap: 8, alignItems: 'center' }}>
+    <View style={{ flexDirection: "row", gap: 8, alignItems: "center" }}>
       {/* Compact icon buttons */}
       <Button size="icon" onPress={() => toggleFavorite()} variant="outline">
-        <Ionicons 
-          name={isFavorite ? "heart" : "heart-outline"} 
-          size={18} 
-          color={isFavorite ? "#EF4444" : "#6B7280"} 
+        <Ionicons
+          name={isFavorite ? "heart" : "heart-outline"}
+          size={18}
+          color={isFavorite ? "#EF4444" : "#6B7280"}
         />
       </Button>
-      
+
       <Button size="icon" onPress={() => shareContent()} variant="outline">
         <Ionicons name="share" size={18} color="#6B7280" />
       </Button>
-      
+
       <Button size="icon" onPress={() => openSettings()} variant="outline">
         <Ionicons name="settings" size={18} color="#6B7280" />
       </Button>
-      
+
       {/* Primary action icon */}
       <Button size="icon" onPress={() => addItem()} variant="primary">
         <Ionicons name="add" size={20} color="white" />
       </Button>
-      
+
       {/* Accent icon button */}
       <Button size="icon" onPress={() => starItem()} variant="accent">
-        <Ionicons 
-          name={isStarred ? "star" : "star-outline"} 
-          size={18} 
-          color="#1F2937" 
-        />
+        <Ionicons name={isStarred ? "star" : "star-outline"} size={18} color="#1F2937" />
       </Button>
     </View>
   );
@@ -691,11 +633,11 @@ const IconOnlyButtons = () => {
 ```tsx
 // Custom text styling
 <Button onPress={() => {}}>
-  <Text style={{ 
-    color: '#3B82F6', 
-    fontSize: 18, 
+  <Text style={{
+    color: '#3B82F6',
+    fontSize: 18,
     fontWeight: 'bold',
-    textTransform: 'uppercase' 
+    textTransform: 'uppercase'
   }}>
     Custom Text
   </Text>
@@ -718,14 +660,14 @@ const IconOnlyButtons = () => {
 // Custom loading content
 <Button onPress={() => {}} loading={isLoading}>
   {isLoading ? (
-    <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+    <View style={{ flexDirection: "row", alignItems: "center" }}>
       <ActivityIndicator size="small" color="white" />
-      <Text style={{ color: 'white', marginLeft: 8 }}>Saving...</Text>
+      <Text style={{ color: "white", marginLeft: 8 }}>Saving...</Text>
     </View>
   ) : (
-    <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+    <View style={{ flexDirection: "row", alignItems: "center" }}>
       <Ionicons name="save" size={20} color="white" />
-      <Text style={{ color: 'white', marginLeft: 8 }}>Save</Text>
+      <Text style={{ color: "white", marginLeft: 8 }}>Save</Text>
     </View>
   )}
 </Button>
@@ -816,23 +758,23 @@ const IconOnlyButtons = () => {
 const DynamicButton = ({ action, currentState }) => {
   const getButtonConfig = () => {
     switch (action) {
-      case 'subscribe':
+      case "subscribe":
         return {
-          label: currentState === 'subscribed' ? 'Subscribed' : 'Subscribe',
-          variant: currentState === 'subscribed' ? 'accent' : 'primary',
-          disabled: currentState === 'subscribed'
+          label: currentState === "subscribed" ? "Subscribed" : "Subscribe",
+          variant: currentState === "subscribed" ? "accent" : "primary",
+          disabled: currentState === "subscribed",
         };
-      case 'follow':
+      case "follow":
         return {
-          label: currentState === 'following' ? 'Following' : 'Follow',
-          variant: currentState === 'following' ? 'accent' : 'outline',
-          disabled: currentState === 'following'
+          label: currentState === "following" ? "Following" : "Follow",
+          variant: currentState === "following" ? "accent" : "outline",
+          disabled: currentState === "following",
         };
       default:
         return {
-          label: 'Action',
-          variant: 'primary',
-          disabled: false
+          label: "Action",
+          variant: "primary",
+          disabled: false,
         };
     }
   };
@@ -853,11 +795,11 @@ const DynamicButton = ({ action, currentState }) => {
 ### Button Groups
 
 ```tsx
-const ButtonGroup = ({ buttons, orientation = 'horizontal' }) => {
+const ButtonGroup = ({ buttons, orientation = "horizontal" }) => {
   const containerStyle = {
-    flexDirection: orientation === 'horizontal' ? 'row' : 'column',
+    flexDirection: orientation === "horizontal" ? "row" : "column",
     gap: 8,
-    alignItems: orientation === 'horizontal' ? 'center' : 'stretch'
+    alignItems: orientation === "horizontal" ? "center" : "stretch",
   };
 
   return (
@@ -868,7 +810,7 @@ const ButtonGroup = ({ buttons, orientation = 'horizontal' }) => {
           label={button.label}
           variant={button.variant}
           size={button.size}
-          width={orientation === 'vertical' ? 'full' : 'fit'}
+          width={orientation === "vertical" ? "full" : "fit"}
           onPress={button.onPress}
           loading={button.loading}
           disabled={button.disabled}
@@ -880,33 +822,28 @@ const ButtonGroup = ({ buttons, orientation = 'horizontal' }) => {
 
 // Usage
 const buttons = [
-  { label: 'Save', variant: 'primary', onPress: handleSave },
-  { label: 'Cancel', variant: 'outline', onPress: handleCancel },
-  { label: 'Delete', variant: 'outline', onPress: handleDelete }
+  { label: "Save", variant: "primary", onPress: handleSave },
+  { label: "Cancel", variant: "outline", onPress: handleCancel },
+  { label: "Delete", variant: "outline", onPress: handleDelete },
 ];
 
-<ButtonGroup buttons={buttons} orientation="horizontal" />
+<ButtonGroup buttons={buttons} orientation="horizontal" />;
 ```
 
 ### Conditional Button Rendering
 
 ```tsx
 const ConditionalButtons = ({ user, item }) => {
-  const canEdit = user.role === 'admin' || user.id === item.ownerId;
-  const canDelete = user.role === 'admin';
+  const canEdit = user.role === "admin" || user.id === item.ownerId;
+  const canDelete = user.role === "admin";
   const canShare = item.isPublic;
 
   return (
-    <View style={{ flexDirection: 'row', gap: 8 }}>
+    <View style={{ flexDirection: "row", gap: 8 }}>
       {canEdit && (
-        <Button
-          label="Edit"
-          variant="outline"
-          size="sm"
-          onPress={() => navigateToEdit(item.id)}
-        />
+        <Button label="Edit" variant="outline" size="sm" onPress={() => navigateToEdit(item.id)} />
       )}
-      
+
       {canDelete && (
         <Button
           label="Delete"
@@ -915,14 +852,9 @@ const ConditionalButtons = ({ user, item }) => {
           onPress={() => showDeleteConfirmation(item.id)}
         />
       )}
-      
+
       {canShare && (
-        <Button
-          label="Share"
-          variant="accent"
-          size="sm"
-          onPress={() => shareItem(item)}
-        />
+        <Button label="Share" variant="accent" size="sm" onPress={() => shareItem(item)} />
       )}
     </View>
   );
@@ -940,7 +872,7 @@ The button component uses a predefined color palette from `@/constants/Colours`:
 colors.orange[300] // Background
 colors.white[100]  // Text
 
-// Accent variant colors  
+// Accent variant colors
 colors.yellow[300] // Background
 colors.black[300]  // Text
 
@@ -978,16 +910,16 @@ colors.orange[50]  // Loading spinner
 
 ```tsx
 const ResponsiveButton = ({ label, onPress }) => {
-  const [screenWidth, setScreenWidth] = useState(Dimensions.get('window').width);
-  
+  const [screenWidth, setScreenWidth] = useState(Dimensions.get("window").width);
+
   const isMobile = screenWidth < 768;
-  
+
   return (
     <Button
       label={label}
-      size={isMobile ? 'lg' : 'base'}
-      width={isMobile ? 'full' : 'fit'}
-      borderRadius={isMobile ? 'curved' : 'rounded'}
+      size={isMobile ? "lg" : "base"}
+      width={isMobile ? "full" : "fit"}
+      borderRadius={isMobile ? "curved" : "rounded"}
       onPress={onPress}
     />
   );
@@ -997,36 +929,30 @@ const ResponsiveButton = ({ label, onPress }) => {
 ## Best Practices
 
 ### 1. Loading States
+
 Always provide visual feedback during async operations:
 
 ```tsx
-<Button
-  label="Submit"
-  onPress={handleSubmit}
-  loading={isSubmitting}
-  disabled={isSubmitting}
-/>
+<Button label="Submit" onPress={handleSubmit} loading={isSubmitting} disabled={isSubmitting} />
 ```
 
 ### 2. Disabled States
+
 Disable buttons when actions are not available:
 
 ```tsx
-<Button
-  label="Save"
-  onPress={handleSave}
-  disabled={!isFormValid || isSubmitting}
-/>
+<Button label="Save" onPress={handleSave} disabled={!isFormValid || isSubmitting} />
 ```
 
 ### 3. Consistent Sizing
+
 Use consistent sizes throughout your application:
 
 ```tsx
 // Primary actions
 <Button size="lg" variant="primary" />
 
-// Secondary actions  
+// Secondary actions
 <Button size="md" variant="outline" />
 
 // Compact actions
@@ -1034,6 +960,7 @@ Use consistent sizes throughout your application:
 ```
 
 ### 4. Accessibility
+
 Provide clear, descriptive labels:
 
 ```tsx
@@ -1045,6 +972,7 @@ Provide clear, descriptive labels:
 ```
 
 ### 5. Error Handling
+
 Handle errors gracefully in button actions:
 
 ```tsx
@@ -1052,9 +980,9 @@ const handleSubmit = async () => {
   try {
     setIsLoading(true);
     await submitForm();
-    showSuccessMessage('Form submitted successfully');
+    showSuccessMessage("Form submitted successfully");
   } catch (error) {
-    showErrorMessage('Failed to submit form. Please try again.');
+    showErrorMessage("Failed to submit form. Please try again.");
   } finally {
     setIsLoading(false);
   }
@@ -1062,6 +990,7 @@ const handleSubmit = async () => {
 ```
 
 ### 6. Button Hierarchy
+
 Use variants to establish visual hierarchy:
 
 ```tsx
@@ -1076,6 +1005,7 @@ Use variants to establish visual hierarchy:
 ```
 
 ### 7. Accessibility
+
 Provide clear, descriptive labels:
 
 ```tsx
@@ -1083,8 +1013,8 @@ Provide clear, descriptive labels:
 <Button label="Save Changes" onPress={handleSave} />
 
 // Better
-<Button 
-  label="Save Profile Changes" 
+<Button
+  label="Save Profile Changes"
   onPress={handleSave}
   accessibilityLabel="Save all changes to your profile"
   accessibilityHint="Double tap to save your profile changes"
@@ -1092,17 +1022,15 @@ Provide clear, descriptive labels:
 ```
 
 ### 8. Testing
+
 Use testID for reliable automated testing:
 
 ```tsx
-<Button 
-  label="Submit" 
-  onPress={handleSubmit}
-  testID="submit-form-button"
-/>
+<Button label="Submit" onPress={handleSubmit} testID="submit-form-button" />
 ```
 
 ### 9. Children Usage
+
 Use children for custom content and icons:
 
 ```tsx
@@ -1133,6 +1061,7 @@ Use children for custom content and icons:
 ```
 
 ### 10. Icon Button Best Practices
+
 Use the icon size for compact icon-only buttons:
 
 ```tsx
@@ -1157,12 +1086,13 @@ const iconSize = 18; // Define consistent icon sizes
 ```
 
 ### 11. Custom Styling
+
 Use style prop for additional customization:
 
 ```tsx
 // Add shadows and elevation
-<Button 
-  label="Elevated Button" 
+<Button
+  label="Elevated Button"
   onPress={handlePress}
   style={{
     shadowColor: '#000',
@@ -1174,8 +1104,8 @@ Use style prop for additional customization:
 />
 
 // Custom positioning
-<Button 
-  label="Floating Action" 
+<Button
+  label="Floating Action"
   onPress={handlePress}
   style={{
     position: 'absolute',
@@ -1190,7 +1120,7 @@ Use style prop for additional customization:
 The component is fully typed with TypeScript:
 
 ```tsx
-interface ButtonProps extends Omit<TouchableOpacityProps, 'onPress'> {
+interface ButtonProps extends Omit<TouchableOpacityProps, "onPress"> {
   label?: string;
   children?: React.ReactNode;
   onPress: (event: GestureResponderEvent) => void;
@@ -1217,13 +1147,15 @@ type ButtonSize = "sm" | "md" | "base" | "lg" | "xl" | "icon";
 ## Browser Compatibility
 
 This component is designed for React Native and works with:
+
 - iOS (via Expo)
-- Android (via Expo)  
+- Android (via Expo)
 - Web (via Expo Web)
 
 ## Common Patterns
 
 ### Form Submission
+
 ```tsx
 const FormSubmitButton = ({ isValid, isSubmitting, onSubmit }) => (
   <Button
@@ -1239,18 +1171,15 @@ const FormSubmitButton = ({ isValid, isSubmitting, onSubmit }) => (
 ```
 
 ### Navigation Actions
+
 ```tsx
 const NavigationButton = ({ destination, label }) => (
-  <Button
-    label={label}
-    variant="outline"
-    size="md"
-    onPress={() => navigate(destination)}
-  />
+  <Button label={label} variant="outline" size="md" onPress={() => navigate(destination)} />
 );
 ```
 
 ### Toggle Actions
+
 ```tsx
 const ToggleButton = ({ isActive, onToggle, activeLabel, inactiveLabel }) => (
   <Button
@@ -1263,14 +1192,10 @@ const ToggleButton = ({ isActive, onToggle, activeLabel, inactiveLabel }) => (
 ```
 
 ### Text Links
+
 ```tsx
 const TextLinkButton = ({ label, onPress }) => (
-  <Button
-    label={label}
-    variant="plain"
-    size="sm"
-    onPress={onPress}
-  />
+  <Button label={label} variant="plain" size="sm" onPress={onPress} />
 );
 ```
 

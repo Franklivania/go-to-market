@@ -23,6 +23,7 @@ npm install @react-native-async-storage/async-storage
 ```
 
 Make sure you have the Karla font files in your `assets/fonts/` directory:
+
 - `Karla-Font.ttf`
 - `Karla-Italic.ttf`
 
@@ -42,9 +43,9 @@ import Typography from './components/typography';
 </Typography>
 
 // Custom styling
-<Typography 
-  variant="body" 
-  color="#FF0000" 
+<Typography
+  variant="body"
+  color="#FF0000"
   fontWeight="bold"
 >
   Custom styled text
@@ -53,17 +54,17 @@ import Typography from './components/typography';
 
 ## Props Reference
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `variant` | `TypographyVariant` | `'body'` | Predefined text style variant |
-| `color` | `string` | - | Override text color |
-| `fontWeight` | `TextStyle["fontWeight"]` | - | Override font weight |
-| `fontFamily` | `string` | - | Override font family |
-| `italic` | `boolean` | `false` | Apply italic styling |
-| `style` | `StyleProp<TextStyle>` | - | Additional custom styles |
-| `children` | `React.ReactNode` | - | Text content (required) |
-| `numberOfLines` | `number` | - | Limit number of lines |
-| `ellipsizeMode` | `TextProps["ellipsizeMode"]` | - | Text truncation behavior |
+| Prop            | Type                         | Default  | Description                   |
+| --------------- | ---------------------------- | -------- | ----------------------------- |
+| `variant`       | `TypographyVariant`          | `'body'` | Predefined text style variant |
+| `color`         | `string`                     | -        | Override text color           |
+| `fontWeight`    | `TextStyle["fontWeight"]`    | -        | Override font weight          |
+| `fontFamily`    | `string`                     | -        | Override font family          |
+| `italic`        | `boolean`                    | `false`  | Apply italic styling          |
+| `style`         | `StyleProp<TextStyle>`       | -        | Additional custom styles      |
+| `children`      | `React.ReactNode`            | -        | Text content (required)       |
+| `numberOfLines` | `number`                     | -        | Limit number of lines         |
+| `ellipsizeMode` | `TextProps["ellipsizeMode"]` | -        | Text truncation behavior      |
 
 All standard `TextProps` are also supported.
 
@@ -72,66 +73,66 @@ All standard `TextProps` are also supported.
 ### Headings (h1-h6)
 
 #### H1 - Main Heading
+
 ```tsx
-<Typography variant="h1">
-  Main Page Title
-</Typography>
+<Typography variant="h1">Main Page Title</Typography>
 ```
+
 - **Font Size:** 32px
 - **Font Weight:** 700 (Bold)
 - **Line Height:** 40px
 - **Use Case:** Page titles, hero headings
 
 #### H2 - Section Heading
+
 ```tsx
-<Typography variant="h2">
-  Section Title
-</Typography>
+<Typography variant="h2">Section Title</Typography>
 ```
+
 - **Font Size:** 28px
 - **Font Weight:** 700 (Bold)
 - **Line Height:** 36px
 - **Use Case:** Major section headings
 
 #### H3 - Subsection Heading
+
 ```tsx
-<Typography variant="h3">
-  Subsection Title
-</Typography>
+<Typography variant="h3">Subsection Title</Typography>
 ```
+
 - **Font Size:** 24px
 - **Font Weight:** 700 (Bold)
 - **Line Height:** 32px
 - **Use Case:** Subsection headings
 
 #### H4 - Component Heading
+
 ```tsx
-<Typography variant="h4">
-  Component Title
-</Typography>
+<Typography variant="h4">Component Title</Typography>
 ```
+
 - **Font Size:** 20px
 - **Font Weight:** 600 (Semi-bold)
 - **Line Height:** 28px
 - **Use Case:** Component titles, card headers
 
 #### H5 - Small Heading
+
 ```tsx
-<Typography variant="h5">
-  Small Title
-</Typography>
+<Typography variant="h5">Small Title</Typography>
 ```
+
 - **Font Size:** 18px
 - **Font Weight:** 600 (Semi-bold)
 - **Line Height:** 24px
 - **Use Case:** Small headings, list headers
 
 #### H6 - Micro Heading
+
 ```tsx
-<Typography variant="h6">
-  Micro Title
-</Typography>
+<Typography variant="h6">Micro Title</Typography>
 ```
+
 - **Font Size:** 16px
 - **Font Weight:** 600 (Semi-bold)
 - **Line Height:** 22px
@@ -140,22 +141,22 @@ All standard `TextProps` are also supported.
 ### Body Text
 
 #### Body - Primary Text
+
 ```tsx
-<Typography variant="body">
-  This is the main body text for paragraphs and content.
-</Typography>
+<Typography variant="body">This is the main body text for paragraphs and content.</Typography>
 ```
+
 - **Font Size:** 16px
 - **Font Weight:** 400 (Regular)
 - **Line Height:** 22px
 - **Use Case:** Main content, paragraphs
 
 #### Body2 - Secondary Text
+
 ```tsx
-<Typography variant="body2">
-  This is secondary body text, slightly smaller.
-</Typography>
+<Typography variant="body2">This is secondary body text, slightly smaller.</Typography>
 ```
+
 - **Font Size:** 14px
 - **Font Weight:** 400 (Regular)
 - **Line Height:** 20px
@@ -164,33 +165,33 @@ All standard `TextProps` are also supported.
 ### Specialized Text
 
 #### Subtitle
+
 ```tsx
-<Typography variant="subtitle">
-  This is subtitle text
-</Typography>
+<Typography variant="subtitle">This is subtitle text</Typography>
 ```
+
 - **Font Size:** 15px
 - **Font Weight:** 500 (Medium)
 - **Line Height:** 20px
 - **Use Case:** Subtitles, secondary headings
 
 #### Caption
+
 ```tsx
-<Typography variant="caption">
-  Small caption text
-</Typography>
+<Typography variant="caption">Small caption text</Typography>
 ```
+
 - **Font Size:** 12px
 - **Font Weight:** 400 (Regular)
 - **Line Height:** 16px
 - **Use Case:** Captions, fine print, metadata
 
 #### Overline
+
 ```tsx
-<Typography variant="overline">
-  OVERLINE TEXT
-</Typography>
+<Typography variant="overline">OVERLINE TEXT</Typography>
 ```
+
 - **Font Size:** 10px
 - **Font Weight:** 500 (Medium)
 - **Line Height:** 14px
@@ -199,11 +200,11 @@ All standard `TextProps` are also supported.
 - **Use Case:** Labels, categories, tags
 
 #### Button
+
 ```tsx
-<Typography variant="button">
-  Button Text
-</Typography>
+<Typography variant="button">Button Text</Typography>
 ```
+
 - **Font Size:** 15px
 - **Font Weight:** 600 (Semi-bold)
 - **Line Height:** 20px
@@ -242,22 +243,20 @@ const ArticleContent = ({ article }) => {
       <Typography variant="h1" style={{ marginBottom: 16 }}>
         {article.title}
       </Typography>
-      
+
       <Typography variant="subtitle" style={{ marginBottom: 8 }}>
         {article.subtitle}
       </Typography>
-      
+
       <Typography variant="caption" style={{ marginBottom: 24 }}>
         Published on {article.date} by {article.author}
       </Typography>
-      
+
       <Typography variant="body" style={{ marginBottom: 16 }}>
         {article.excerpt}
       </Typography>
-      
-      <Typography variant="body">
-        {article.content}
-      </Typography>
+
+      <Typography variant="body">{article.content}</Typography>
     </View>
   );
 };
@@ -272,19 +271,17 @@ const ProductCard = ({ product }) => {
       <Typography variant="h4" style={{ marginBottom: 8 }}>
         {product.name}
       </Typography>
-      
+
       <Typography variant="body2" style={{ marginBottom: 12 }}>
         {product.description}
       </Typography>
-      
-      <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+
+      <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center" }}>
         <Typography variant="h5" color="#10B981">
           ${product.price}
         </Typography>
-        
-        <Typography variant="caption">
-          {product.category}
-        </Typography>
+
+        <Typography variant="caption">{product.category}</Typography>
       </View>
     </View>
   );
@@ -300,15 +297,15 @@ const FormField = ({ label, helpText, error, children }) => {
       <Typography variant="body" fontWeight="600" style={{ marginBottom: 4 }}>
         {label}
       </Typography>
-      
+
       {children}
-      
+
       {helpText && (
         <Typography variant="caption" style={{ marginTop: 4 }}>
           {helpText}
         </Typography>
       )}
-      
+
       {error && (
         <Typography variant="caption" color="#EF4444" style={{ marginTop: 4 }}>
           {error}
@@ -328,18 +325,14 @@ const NavigationMenu = ({ items }) => {
       <Typography variant="h6" style={{ marginBottom: 16 }}>
         Navigation
       </Typography>
-      
+
       {items.map((item, index) => (
         <TouchableOpacity key={index} style={styles.menuItem}>
           <Typography variant="body" style={{ marginBottom: 8 }}>
             {item.title}
           </Typography>
-          
-          {item.description && (
-            <Typography variant="caption">
-              {item.description}
-            </Typography>
-          )}
+
+          {item.description && <Typography variant="caption">{item.description}</Typography>}
         </TouchableOpacity>
       ))}
     </View>
@@ -353,11 +346,16 @@ const NavigationMenu = ({ items }) => {
 const StatusMessage = ({ type, message }) => {
   const getStatusColor = () => {
     switch (type) {
-      case 'success': return '#10B981';
-      case 'error': return '#EF4444';
-      case 'warning': return '#F59E0B';
-      case 'info': return '#3B82F6';
-      default: return undefined;
+      case "success":
+        return "#10B981";
+      case "error":
+        return "#EF4444";
+      case "warning":
+        return "#F59E0B";
+      case "info":
+        return "#3B82F6";
+      default:
+        return undefined;
     }
   };
 
@@ -380,26 +378,26 @@ const UserProfile = ({ user }) => {
       <Typography variant="h3" style={{ marginBottom: 8 }}>
         {user.name}
       </Typography>
-      
+
       <Typography variant="subtitle" style={{ marginBottom: 4 }}>
         {user.title}
       </Typography>
-      
+
       <Typography variant="body2" style={{ marginBottom: 16 }}>
         {user.bio}
       </Typography>
-      
+
       <View style={styles.statsContainer}>
         <View style={styles.statItem}>
           <Typography variant="h5">{user.followers}</Typography>
           <Typography variant="caption">Followers</Typography>
         </View>
-        
+
         <View style={styles.statItem}>
           <Typography variant="h5">{user.following}</Typography>
           <Typography variant="caption">Following</Typography>
         </View>
-        
+
         <View style={styles.statItem}>
           <Typography variant="h5">{user.posts}</Typography>
           <Typography variant="caption">Posts</Typography>
@@ -419,27 +417,25 @@ const CustomTextBlock = () => {
   return (
     <View>
       {/* Hero section */}
-      <Typography variant="h1" style={{ textAlign: 'center', marginBottom: 16 }}>
+      <Typography variant="h1" style={{ textAlign: "center", marginBottom: 16 }}>
         Welcome to Our App
       </Typography>
-      
-      <Typography variant="subtitle" style={{ textAlign: 'center', marginBottom: 32 }}>
+
+      <Typography variant="subtitle" style={{ textAlign: "center", marginBottom: 32 }}>
         Discover amazing features and connect with others
       </Typography>
-      
+
       {/* Feature list */}
       <Typography variant="h4" style={{ marginBottom: 12 }}>
         Key Features
       </Typography>
-      
+
       {features.map((feature, index) => (
-        <View key={index} style={{ flexDirection: 'row', marginBottom: 8 }}>
+        <View key={index} style={{ flexDirection: "row", marginBottom: 8 }}>
           <Typography variant="body" style={{ marginRight: 8 }}>
             •
           </Typography>
-          <Typography variant="body">
-            {feature.description}
-          </Typography>
+          <Typography variant="body">{feature.description}</Typography>
         </View>
       ))}
     </View>
@@ -451,19 +447,15 @@ const CustomTextBlock = () => {
 
 ```tsx
 const ResponsiveText = ({ content }) => {
-  const [screenWidth, setScreenWidth] = useState(Dimensions.get('window').width);
-  
+  const [screenWidth, setScreenWidth] = useState(Dimensions.get("window").width);
+
   const getResponsiveVariant = () => {
-    if (screenWidth < 768) return 'h4';
-    if (screenWidth < 1024) return 'h3';
-    return 'h2';
+    if (screenWidth < 768) return "h4";
+    if (screenWidth < 1024) return "h3";
+    return "h2";
   };
 
-  return (
-    <Typography variant={getResponsiveVariant()}>
-      {content}
-    </Typography>
-  );
+  return <Typography variant={getResponsiveVariant()}>{content}</Typography>;
 };
 ```
 
@@ -472,11 +464,7 @@ const ResponsiveText = ({ content }) => {
 ```tsx
 const TruncatedText = ({ text, maxLines = 2 }) => {
   return (
-    <Typography 
-      variant="body" 
-      numberOfLines={maxLines}
-      ellipsizeMode="tail"
-    >
+    <Typography variant="body" numberOfLines={maxLines} ellipsizeMode="tail">
       {text}
     </Typography>
   );
@@ -499,9 +487,7 @@ const AnimatedTypography = ({ children, variant = "body" }) => {
 
   return (
     <Animated.View style={{ opacity: fadeAnim }}>
-      <Typography variant={variant}>
-        {children}
-      </Typography>
+      <Typography variant={variant}>{children}</Typography>
     </Animated.View>
   );
 };
@@ -567,23 +553,23 @@ const AnimatedTypography = ({ children, variant = "body" }) => {
 const StyledTextBlock = () => {
   return (
     <View>
-      <Typography 
-        variant="h2" 
-        style={{ 
-          textAlign: 'center', 
+      <Typography
+        variant="h2"
+        style={{
+          textAlign: "center",
           marginBottom: 24,
-          paddingHorizontal: 16 
+          paddingHorizontal: 16,
         }}
       >
         Centered Heading
       </Typography>
-      
-      <Typography 
-        variant="body" 
-        style={{ 
-          textAlign: 'justify',
+
+      <Typography
+        variant="body"
+        style={{
+          textAlign: "justify",
           lineHeight: 24,
-          marginBottom: 16 
+          marginBottom: 16,
         }}
       >
         Justified text with custom line height and spacing.
@@ -618,10 +604,10 @@ const ArticleLayout = () => {
       <Typography variant="h1">Article Title</Typography>
       <Typography variant="subtitle">Article Subtitle</Typography>
       <Typography variant="caption">Publication Date</Typography>
-      
+
       <Typography variant="h3">Section Heading</Typography>
       <Typography variant="body">Section content...</Typography>
-      
+
       <Typography variant="h4">Subsection</Typography>
       <Typography variant="body2">Subsection content...</Typography>
     </View>
@@ -652,16 +638,12 @@ const ArticleLayout = () => {
 
 ```tsx
 // Good - Memoize expensive text components
-const MemoizedText = React.memo(({ content }) => (
-  <Typography variant="body">
-    {content}
-  </Typography>
-));
+const MemoizedText = React.memo(({ content }) => <Typography variant="body">{content}</Typography>);
 
 // Good - Use numberOfLines for long text
 <Typography variant="body" numberOfLines={3}>
   Long text content...
-</Typography>
+</Typography>;
 ```
 
 ### 5. Theme Integration
@@ -696,9 +678,18 @@ interface TypographyProps extends TextProps {
 }
 
 type TypographyVariant =
-  | "h1" | "h2" | "h3" | "h4" | "h5" | "h6"
-  | "subtitle" | "body" | "body2" | "caption" 
-  | "overline" | "button";
+  | "h1"
+  | "h2"
+  | "h3"
+  | "h4"
+  | "h5"
+  | "h6"
+  | "subtitle"
+  | "body"
+  | "body2"
+  | "caption"
+  | "overline"
+  | "button";
 ```
 
 ## Performance Considerations
@@ -711,6 +702,7 @@ type TypographyVariant =
 ## Browser Compatibility
 
 This component is designed for React Native and works with:
+
 - iOS (via Expo)
 - Android (via Expo)
 - Web (via Expo Web)
@@ -718,9 +710,10 @@ This component is designed for React Native and works with:
 ## Common Patterns
 
 ### Text with Icons
+
 ```tsx
 const TextWithIcon = ({ icon, text, variant = "body" }) => (
-  <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+  <View style={{ flexDirection: "row", alignItems: "center" }}>
     {icon}
     <Typography variant={variant} style={{ marginLeft: 8 }}>
       {text}
@@ -730,12 +723,13 @@ const TextWithIcon = ({ icon, text, variant = "body" }) => (
 ```
 
 ### Conditional Styling
+
 ```tsx
 const ConditionalText = ({ isActive, text }) => (
-  <Typography 
-    variant="body" 
-    color={isActive ? '#10B981' : '#6B7280'}
-    fontWeight={isActive ? '600' : '400'}
+  <Typography
+    variant="body"
+    color={isActive ? "#10B981" : "#6B7280"}
+    fontWeight={isActive ? "600" : "400"}
   >
     {text}
   </Typography>
@@ -743,6 +737,7 @@ const ConditionalText = ({ isActive, text }) => (
 ```
 
 ### Text Lists
+
 ```tsx
 const TextList = ({ items, variant = "body" }) => (
   <View>

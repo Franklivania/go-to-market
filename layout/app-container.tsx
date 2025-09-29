@@ -1,7 +1,7 @@
-import { colors } from '@/constants/Colours';
-import React from 'react';
-import { StyleSheet, View, ViewStyle } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { colors } from "@/constants/Colours";
+import React from "react";
+import { StyleSheet, View, ViewStyle } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 interface AppContainerProps {
   children: React.ReactNode;

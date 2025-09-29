@@ -1,6 +1,6 @@
-import { colors } from '@/constants/Colours';
-import React from 'react';
-import { TouchableOpacity, View, Text, StyleSheet } from 'react-native';
+import { colors } from "@/constants/Colours";
+import React from "react";
+import { TouchableOpacity, View, Text, StyleSheet } from "react-native";
 
 interface RadioProps {
   label: string;
@@ -20,11 +20,7 @@ export default function Radio({
   color = `${colors.orange[600]}`,
 }: RadioProps) {
   return (
-    <TouchableOpacity
-      style={styles.container}
-      onPress={() => onPress(value)}
-      activeOpacity={0.7}
-    >
+    <TouchableOpacity style={styles.container} onPress={() => onPress(value)} activeOpacity={0.7}>
       <View
         style={[
           styles.outerCircle,
@@ -57,14 +53,14 @@ export default function Radio({
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
     marginBottom: 12,
   },
   outerCircle: {
     borderWidth: 2,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
     marginRight: 8,
   },
   innerCircle: {},

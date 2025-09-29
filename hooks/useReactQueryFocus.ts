@@ -1,11 +1,11 @@
-import { useEffect } from 'react';
-import { AppState, Platform } from 'react-native';
-import { focusManager } from '@tanstack/react-query';
+import { useEffect } from "react";
+import { AppState, Platform } from "react-native";
+import { focusManager } from "@tanstack/react-query";
 
 function onAppStateChange(status: string) {
   // When app comes to foreground, set focused = true
-  if (Platform.OS !== 'web') {
-    focusManager.setFocused(status === 'active');
+  if (Platform.OS !== "web") {
+    focusManager.setFocused(status === "active");
   }
 }
 
@@ -14,7 +14,7 @@ function onAppStateChange(status: string) {
  */
 export function useReactQueryFocus() {
   useEffect(() => {
-    const subscription = AppState.addEventListener('change', onAppStateChange);
+    const subscription = AppState.addEventListener("change", onAppStateChange);
     return () => subscription.remove();
   }, []);
 }

@@ -49,26 +49,27 @@ import FormInput from './components/form-input';
 
 ## Props Reference
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `label` | `string` | - | Label text displayed above the input |
-| `variant` | `'outline' \| 'plain' \| 'filled' \| 'underlined'` | `'outline'` | Visual style variant |
-| `radius` | `'none' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| 'full'` | `'md'` | Border radius size |
-| `size` | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl'` | `'md'` | Input size and font size |
-| `type` | `FormInputType` | `'text'` | Input type and behavior |
-| `color` | `string` | `'#4A5568'` | Border/outline/filled tint color |
-| `backgroundColor` | `string` | - | Direct background color override |
-| `textColor` | `string` | - | Text color override |
-| `borderPosition` | `'all' \| 'top' \| 'right' \| 'bottom' \| 'left'` | `'all'` | Border position for outline variant |
-| `error` | `string` | - | Error message displayed below input |
-| `rightIcon` | `React.ReactNode` | - | Icon displayed on the right side |
-| `leftIcon` | `React.ReactNode` | - | Icon displayed on the left side |
+| Prop              | Type                                               | Default     | Description                          |
+| ----------------- | -------------------------------------------------- | ----------- | ------------------------------------ |
+| `label`           | `string`                                           | -           | Label text displayed above the input |
+| `variant`         | `'outline' \| 'plain' \| 'filled' \| 'underlined'` | `'outline'` | Visual style variant                 |
+| `radius`          | `'none' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| 'full'` | `'md'`      | Border radius size                   |
+| `size`            | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl'`             | `'md'`      | Input size and font size             |
+| `type`            | `FormInputType`                                    | `'text'`    | Input type and behavior              |
+| `color`           | `string`                                           | `'#4A5568'` | Border/outline/filled tint color     |
+| `backgroundColor` | `string`                                           | -           | Direct background color override     |
+| `textColor`       | `string`                                           | -           | Text color override                  |
+| `borderPosition`  | `'all' \| 'top' \| 'right' \| 'bottom' \| 'left'`  | `'all'`     | Border position for outline variant  |
+| `error`           | `string`                                           | -           | Error message displayed below input  |
+| `rightIcon`       | `React.ReactNode`                                  | -           | Icon displayed on the right side     |
+| `leftIcon`        | `React.ReactNode`                                  | -           | Icon displayed on the left side      |
 
 All standard `TextInputProps` are also supported.
 
 ## Variants
 
 ### Outline (Default)
+
 Creates a bordered input with customizable border color and position.
 
 ```tsx
@@ -81,17 +82,15 @@ Creates a bordered input with customizable border color and position.
 ```
 
 ### Plain
+
 Minimal styling with no borders or background.
 
 ```tsx
-<FormInput
-  label="Plain Input"
-  variant="plain"
-  placeholder="Clean, minimal input"
-/>
+<FormInput label="Plain Input" variant="plain" placeholder="Clean, minimal input" />
 ```
 
 ### Filled
+
 Background color with subtle tint based on the color prop.
 
 ```tsx
@@ -104,6 +103,7 @@ Background color with subtle tint based on the color prop.
 ```
 
 ### Underlined
+
 Bottom border only, perfect for material design patterns.
 
 ```tsx
@@ -117,13 +117,13 @@ Bottom border only, perfect for material design patterns.
 
 ## Sizes
 
-| Size | Font Size | Padding | Use Case |
-|------|-----------|---------|----------|
-| `xs` | 12px | 6px | Compact forms, mobile |
-| `sm` | 14px | 8px | Small forms, secondary inputs |
-| `md` | 16px | 10px | Standard forms (default) |
-| `lg` | 18px | 12px | Large forms, accessibility |
-| `xl` | 20px | 14px | Extra large, high visibility |
+| Size | Font Size | Padding | Use Case                      |
+| ---- | --------- | ------- | ----------------------------- |
+| `xs` | 12px      | 6px     | Compact forms, mobile         |
+| `sm` | 14px      | 8px     | Small forms, secondary inputs |
+| `md` | 16px      | 10px    | Standard forms (default)      |
+| `lg` | 18px      | 12px    | Large forms, accessibility    |
+| `xl` | 20px      | 14px    | Extra large, high visibility  |
 
 ```tsx
 <FormInput size="xs" placeholder="Extra small" />
@@ -136,17 +136,15 @@ Bottom border only, perfect for material design patterns.
 ## Input Types
 
 ### Text Input
+
 Standard text input for names, descriptions, etc.
 
 ```tsx
-<FormInput
-  label="Full Name"
-  type="text"
-  placeholder="Enter your full name"
-/>
+<FormInput label="Full Name" type="text" placeholder="Enter your full name" />
 ```
 
 ### Email Input
+
 Optimized for email addresses with email keyboard.
 
 ```tsx
@@ -159,61 +157,47 @@ Optimized for email addresses with email keyboard.
 ```
 
 ### Password Input
+
 Includes automatic visibility toggle functionality.
 
 ```tsx
-<FormInput
-  label="Password"
-  type="password"
-  placeholder="Enter your password"
-/>
+<FormInput label="Password" type="password" placeholder="Enter your password" />
 ```
 
 ### Number Input
+
 Numeric input with number keyboard.
 
 ```tsx
-<FormInput
-  label="Age"
-  type="number"
-  placeholder="Enter your age"
-/>
+<FormInput label="Age" type="number" placeholder="Enter your age" />
 ```
 
 ### Phone Input
+
 Phone number input with phone pad keyboard.
 
 ```tsx
-<FormInput
-  label="Phone Number"
-  type="phone"
-  placeholder="+1 (555) 123-4567"
-/>
+<FormInput label="Phone Number" type="phone" placeholder="+1 (555) 123-4567" />
 ```
 
 ### URL Input
+
 URL input with URL keyboard.
 
 ```tsx
-<FormInput
-  label="Website"
-  type="url"
-  placeholder="https://example.com"
-/>
+<FormInput label="Website" type="url" placeholder="https://example.com" />
 ```
 
 ### Search Input
+
 Search input with appropriate keyboard.
 
 ```tsx
-<FormInput
-  label="Search"
-  type="search"
-  placeholder="Search for something..."
-/>
+<FormInput label="Search" type="search" placeholder="Search for something..." />
 ```
 
 ### Multiline Input
+
 Multi-line text input for longer content.
 
 ```tsx
@@ -226,14 +210,11 @@ Multi-line text input for longer content.
 ```
 
 ### Numeric Input
+
 Alternative numeric input type.
 
 ```tsx
-<FormInput
-  label="Price"
-  type="numeric"
-  placeholder="0.00"
-/>
+<FormInput label="Price" type="numeric" placeholder="0.00" />
 ```
 
 ## Border Positions
@@ -264,11 +245,11 @@ For outline variant, you can specify which borders to show:
 ```tsx
 const RegistrationForm = () => {
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    password: '',
-    confirmPassword: ''
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
   });
 
   return (
@@ -276,38 +257,38 @@ const RegistrationForm = () => {
       <FormInput
         label="First Name"
         value={formData.firstName}
-        onChangeText={(text) => setFormData({...formData, firstName: text})}
+        onChangeText={(text) => setFormData({ ...formData, firstName: text })}
         placeholder="Enter your first name"
       />
-      
+
       <FormInput
         label="Last Name"
         value={formData.lastName}
-        onChangeText={(text) => setFormData({...formData, lastName: text})}
+        onChangeText={(text) => setFormData({ ...formData, lastName: text })}
         placeholder="Enter your last name"
       />
-      
+
       <FormInput
         label="Email"
         type="email"
         value={formData.email}
-        onChangeText={(text) => setFormData({...formData, email: text})}
+        onChangeText={(text) => setFormData({ ...formData, email: text })}
         placeholder="Enter your email"
       />
-      
+
       <FormInput
         label="Password"
         type="password"
         value={formData.password}
-        onChangeText={(text) => setFormData({...formData, password: text})}
+        onChangeText={(text) => setFormData({ ...formData, password: text })}
         placeholder="Create a password"
       />
-      
+
       <FormInput
         label="Confirm Password"
         type="password"
         value={formData.confirmPassword}
-        onChangeText={(text) => setFormData({...formData, confirmPassword: text})}
+        onChangeText={(text) => setFormData({ ...formData, confirmPassword: text })}
         placeholder="Confirm your password"
       />
     </View>
@@ -319,7 +300,7 @@ const RegistrationForm = () => {
 
 ```tsx
 const SearchBar = () => {
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState("");
 
   return (
     <FormInput
@@ -348,34 +329,15 @@ const ContactForm = () => {
         variant="outline"
         size="lg"
       />
-      
-      <FormInput
-        label="Contact Person"
-        placeholder="Full name"
-        variant="outline"
-      />
-      
-      <FormInput
-        label="Email"
-        type="email"
-        placeholder="contact@company.com"
-        variant="outline"
-      />
-      
-      <FormInput
-        label="Phone"
-        type="phone"
-        placeholder="+1 (555) 123-4567"
-        variant="outline"
-      />
-      
-      <FormInput
-        label="Website"
-        type="url"
-        placeholder="https://company.com"
-        variant="outline"
-      />
-      
+
+      <FormInput label="Contact Person" placeholder="Full name" variant="outline" />
+
+      <FormInput label="Email" type="email" placeholder="contact@company.com" variant="outline" />
+
+      <FormInput label="Phone" type="phone" placeholder="+1 (555) 123-4567" variant="outline" />
+
+      <FormInput label="Website" type="url" placeholder="https://company.com" variant="outline" />
+
       <FormInput
         label="Message"
         type="multiline"
@@ -400,7 +362,7 @@ const SettingsForm = () => {
         leftIcon={<Ionicons name="person" size={20} color="#6B7280" />}
         variant="outline"
       />
-      
+
       <FormInput
         label="Email Notifications"
         placeholder="notification@example.com"
@@ -410,7 +372,7 @@ const SettingsForm = () => {
         variant="filled"
         color="#3B82F6"
       />
-      
+
       <FormInput
         label="API Key"
         type="password"
@@ -428,21 +390,21 @@ const SettingsForm = () => {
 
 ```tsx
 const FormWithValidation = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [errors, setErrors] = useState({});
 
   const validateForm = () => {
     const newErrors = {};
-    
-    if (!email.includes('@')) {
-      newErrors.email = 'Please enter a valid email address';
+
+    if (!email.includes("@")) {
+      newErrors.email = "Please enter a valid email address";
     }
-    
+
     if (password.length < 8) {
-      newErrors.password = 'Password must be at least 8 characters';
+      newErrors.password = "Password must be at least 8 characters";
     }
-    
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -456,9 +418,9 @@ const FormWithValidation = () => {
         onChangeText={setEmail}
         error={errors.email}
         variant="outline"
-        color={errors.email ? '#EF4444' : '#4A5568'}
+        color={errors.email ? "#EF4444" : "#4A5568"}
       />
-      
+
       <FormInput
         label="Password"
         type="password"
@@ -466,7 +428,7 @@ const FormWithValidation = () => {
         onChangeText={setPassword}
         error={errors.password}
         variant="outline"
-        color={errors.password ? '#EF4444' : '#4A5568'}
+        color={errors.password ? "#EF4444" : "#4A5568"}
       />
     </View>
   );
@@ -495,8 +457,8 @@ const FormWithValidation = () => {
 
 ```tsx
 const DynamicInput = ({ isValid, value, onChangeText }) => {
-  const borderColor = isValid ? '#10B981' : '#EF4444';
-  
+  const borderColor = isValid ? "#10B981" : "#EF4444";
+
   return (
     <FormInput
       label="Dynamic Input"
@@ -505,9 +467,11 @@ const DynamicInput = ({ isValid, value, onChangeText }) => {
       color={borderColor}
       variant="outline"
       rightIcon={
-        isValid ? 
-          <Ionicons name="checkmark-circle" size={20} color="#10B981" /> :
+        isValid ? (
+          <Ionicons name="checkmark-circle" size={20} color="#10B981" />
+        ) : (
           <Ionicons name="close-circle" size={20} color="#EF4444" />
+        )
       }
     />
   );
@@ -532,15 +496,10 @@ const MultiStepForm = () => {
               variant="outline"
               size="lg"
             />
-            <FormInput
-              label="Email"
-              type="email"
-              placeholder="your@email.com"
-              variant="outline"
-            />
+            <FormInput label="Email" type="email" placeholder="your@email.com" variant="outline" />
           </View>
         );
-      
+
       case 2:
         return (
           <View>
@@ -559,7 +518,7 @@ const MultiStepForm = () => {
             />
           </View>
         );
-      
+
       default:
         return null;
     }
@@ -606,34 +565,39 @@ const MultiStepForm = () => {
 ## Best Practices
 
 ### 1. Consistent Sizing
+
 Use consistent sizes throughout your application:
+
 - `xs` for compact interfaces
 - `md` for standard forms
 - `lg` for accessibility-focused interfaces
 
 ### 2. Color Consistency
+
 Establish a color palette and use it consistently:
+
 ```tsx
 const colors = {
-  primary: '#3B82F6',
-  success: '#10B981',
-  warning: '#F59E0B',
-  error: '#EF4444',
-  neutral: '#6B7280'
+  primary: "#3B82F6",
+  success: "#10B981",
+  warning: "#F59E0B",
+  error: "#EF4444",
+  neutral: "#6B7280",
 };
 ```
 
 ### 3. Error Handling
+
 Always provide clear error messages:
+
 ```tsx
-<FormInput
-  error={errors.email}
-  color={errors.email ? colors.error : colors.neutral}
-/>
+<FormInput error={errors.email} color={errors.email ? colors.error : colors.neutral} />
 ```
 
 ### 4. Accessibility
+
 Use appropriate sizes and labels:
+
 ```tsx
 <FormInput
   label="Email Address" // Clear, descriptive labels
@@ -643,7 +607,9 @@ Use appropriate sizes and labels:
 ```
 
 ### 5. Icon Usage
+
 Use icons consistently and meaningfully:
+
 ```tsx
 <FormInput
   leftIcon={<Ionicons name="mail" size={20} color="#6B7280" />}
@@ -652,7 +618,9 @@ Use icons consistently and meaningfully:
 ```
 
 ### 6. Form Validation
+
 Implement proper validation patterns:
+
 ```tsx
 const validateEmail = (email) => {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -691,6 +659,7 @@ interface FormInputProps extends TextInputProps {
 ## Browser Compatibility
 
 This component is designed for React Native and works with:
+
 - iOS (via Expo)
 - Android (via Expo)
 - Web (via Expo Web)

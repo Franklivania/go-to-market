@@ -1,6 +1,6 @@
-import React from 'react';
-import { View } from 'react-native';
-import Radio from '.';
+import React from "react";
+import { View } from "react-native";
+import Radio from ".";
 
 interface RadioOption {
   label: string;

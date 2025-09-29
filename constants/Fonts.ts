@@ -23,3 +23,24 @@ export const getFontStyle = (isItalic: boolean = false): {
   fontFamily: isItalic ? FONT_FAMILIES.italic : FONT_FAMILIES.regular,
   fontStyle: isItalic ? "italic" : "normal",
 });
+
+// Scaling helpers
+// Re-export the scaler so consumers can keep imports centralized from constants
+export { getFontSize as getScaledFontSize } from "@/lib/font";
+
+// Convenience helper to produce a text style using scaled size and optional weight/italic
+// Deliberately avoids pulling react-native types here to keep this module lightweight
+export const getScaledFont = (
+  size: number,
+  options?: { weight?: FontWeight; italic?: boolean }
+) => {
+  const { getFontSize } = require("@/lib/font");
+  const scaled = getFontSize(size);
+  const fontFamily = options?.italic ? FONT_FAMILIES.italic : FONT_FAMILIES.regular;
+  return {
+    fontSize: scaled,
+    fontFamily,
+    ...(options?.weight ? { fontWeight: options.weight } : {}),
+    ...(options?.italic ? { fontStyle: "italic" as const } : {}),
+  };
+};

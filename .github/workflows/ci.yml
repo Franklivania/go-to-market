@@ -52,7 +52,7 @@ jobs:
 
       # Run Prettier format check
       - name: Run Prettier check
-        run: npm run prettier-check
+        run: npm run format-check
 
       # Run tests (uncomment if you have Jest or other tests)
       # - name: Run tests

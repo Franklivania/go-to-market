@@ -1,0 +1,107 @@
+[
+  {
+    "id": 1,
+    "title": "Weekly Grocery Run",
+    "items": 12,
+    "total": 26000,
+    "in_draft": false
+  },
+  {
+    "id": 2,
+    "title": "Birthday Party Supplies",
+    "items": 8,
+    "total": 34000,
+    "in_draft": false
+  },
+  {
+    "id": 3,
+    "title": "Quick Essentials",
+    "items": 4,
+    "total": 18000,
+    "in_draft": true
+  },
+  {
+    "id": 4,
+    "title": "Monthly Bulk Shopping",
+    "items": 20,
+    "total": 75000,
+    "in_draft": false
+  },
+  {
+    "id": 5,
+    "title": "Office Pantry Restock",
+    "items": 10,
+    "total": 42000,
+    "in_draft": false
+  },
+  {
+    "id": 6,
+    "title": "Picnic Day List",
+    "items": 7,
+    "total": 15500,
+    "in_draft": true
+  },
+  {
+    "id": 7,
+    "title": "Cleaning Supplies",
+    "items": 5,
+    "total": 9000,
+    "in_draft": false
+  },
+  {
+    "id": 8,
+    "title": "Holiday Feast Prep",
+    "items": 15,
+    "total": 60000,
+    "in_draft": false
+  },
+  {
+    "id": 9,
+    "title": "Snack Run",
+    "items": 6,
+    "total": 12000,
+    "in_draft": true
+  },
+  {
+    "id": 10,
+    "title": "Baking Ingredients",
+    "items": 9,
+    "total": 21000,
+    "in_draft": false
+  },
+  {
+    "id": 11,
+    "title": "Pet Supplies",
+    "items": 3,
+    "total": 8000,
+    "in_draft": false
+  },
+  {
+    "id": 12,
+    "title": "Emergency Restock",
+    "items": 2,
+    "total": 5000,
+    "in_draft": true
+  },
+  {
+    "id": 13,
+    "title": "Weekend BBQ",
+    "items": 11,
+    "total": 32000,
+    "in_draft": false
+  },
+  {
+    "id": 14,
+    "title": "Vegetarian Week",
+    "items": 13,
+    "total": 27000,
+    "in_draft": false
+  },
+  {
+    "id": 15,
+    "title": "Family Dinner",
+    "items": 8,
+    "total": 24000,
+    "in_draft": false
+  }
+]

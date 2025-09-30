@@ -1,16 +1,19 @@
 import React from "react";
-import AppContainer from "@/layout/app-container";
 import { Image, StyleSheet, View } from "react-native";
 import Typography from "@/components/typography";
 import Button from "@/components/button";
 import { Ionicons, MaterialIcons } from "@expo/vector-icons";
 import { colors } from "@/constants/Colours";
+import AppLayout from "@/layout/app-layout";
+import CardViews from "@/ui/dashboard/card-views";
+import CreateListButton from "@/ui/dashboard/create-list-button";
+import { router } from "expo-router";
 
 export default function UserDashboard() {
   let user = "Franklin";
 
   return (
-    <AppContainer style={{ display: "flex", gap: 12 }}>
+    <AppLayout style={{ display: "flex", gap: 12 }}>
       <View style={styles.header}>
         <View>
           <Typography variant="h3" fontWeight={300}>
@@ -21,7 +24,7 @@ export default function UserDashboard() {
         <Button
           variant="outline"
           size="icon"
-          onPress={() => {}}
+          onPress={() => router.push("/notifications")}
           style={{ borderColor: colors.black[600] }}
         >
           <Ionicons name="notifications-outline" size={24} />
@@ -89,7 +92,14 @@ export default function UserDashboard() {
           You can get started by tapping the bottom right button to create your first list
         </Typography>
       </View>
-    </AppContainer>
+
+      <View style={{ marginTop: 12 }}>
+        <Typography variant="h4">Let&apos;s get you up to speed</Typography>
+        <CardViews />
+      </View>
+
+      <CreateListButton />
+    </AppLayout>
   );
 }
 

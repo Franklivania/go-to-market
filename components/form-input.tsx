@@ -150,7 +150,7 @@ export default function FormInput({
 
 const styles = StyleSheet.create({
   label: {
-    fontSize: 14,
+    fontSize: 16,
     marginBottom: 4,
     color: "#4A5568",
   },

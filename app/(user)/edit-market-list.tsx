@@ -6,7 +6,7 @@ import Button from "@/components/button";
 import FormInput from "@/components/form-input";
 import TextArea from "@/components/text-area";
 import { Ionicons } from "@expo/vector-icons";
-import { router } from "expo-router";
+import { router, useLocalSearchParams } from "expo-router";
 import BottomSheet, { BottomSheetBackdrop, BottomSheetView } from "@gorhom/bottom-sheet";
 import {
   createMarketItemSchema,
@@ -20,7 +20,6 @@ import {
   MeasurementUnit,
 } from "@/store/useListStore";
 import ListItemsSheet from "@/ui/dashboard/list-items-view";
-// import ListItemsSheet from "@/components/ListItemsSheet";
 
 type BottomSheetType = "category" | "unit" | null;
 
@@ -33,7 +32,7 @@ const unitLabels: Record<MeasurementUnit, string> = {
   other: "Other",
 };
 
-export default function CreateMarketList() {
+export default function EditMarketList() {
   const [isEditingTitle, setIsEditingTitle] = useState(false);
   const [activeSheet, setActiveSheet] = useState<BottomSheetType>(null);
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -42,8 +41,14 @@ export default function CreateMarketList() {
   const listItemsSheetRef = useRef<BottomSheet>(null);
   const snapPoints = useMemo(() => ["50%"], []);
 
-  const { getCurrentList, setTitle, addItem, createOrUseDraft, startFreshDraft, clearItems } =
-    useListStore();
+  const { id } = useLocalSearchParams<{ id?: string }>();
+  const { getCurrentList, setCurrentList, setTitle, addItem } = useListStore();
+
+  // Ensure the provided list id is set as current
+  useEffect(() => {
+    if (id) setCurrentList(String(id));
+  }, [id, setCurrentList]);
+
   const currentList = getCurrentList();
 
   const [formState, setFormState] = useState({
@@ -54,11 +59,6 @@ export default function CreateMarketList() {
     price: 0,
     notes: "",
   });
-
-  // Initialize a fresh draft on mount so each visit starts a new list
-  useEffect(() => {
-    startFreshDraft();
-  }, [startFreshDraft]);
 
   const openSheet = useCallback((type: BottomSheetType) => {
     setActiveSheet(type);
@@ -84,7 +84,6 @@ export default function CreateMarketList() {
 
   const handleAddItem = useCallback(() => {
     setErrors({});
-
     const payload = {
       title: currentList?.title,
       name: formState.name,
@@ -94,9 +93,7 @@ export default function CreateMarketList() {
       price: formState.price,
       notes: formState.notes,
     };
-
     const result = createMarketItemSchema.safeParse(payload);
-
     if (!result.success) {
       const fieldErrors: Record<string, string> = {};
       result.error.issues.forEach((issue) => {
@@ -108,8 +105,6 @@ export default function CreateMarketList() {
       setErrors(fieldErrors);
       return;
     }
-
-    // Add to store
     addItem({
       name: result.data.name,
       category: result.data.category as ItemCategory,
@@ -118,18 +113,7 @@ export default function CreateMarketList() {
       price: result.data.price,
       notes: result.data.notes,
     });
-
-    // Reset form
-    setFormState({
-      name: "",
-      category: "grains",
-      quantity: 0,
-      unit: "kg",
-      price: 0,
-      notes: "",
-    });
-
-    // Peek the list sheet briefly to show item was added
+    setFormState({ name: "", category: "grains", quantity: 0, unit: "kg", price: 0, notes: "" });
     listItemsSheetRef.current?.snapToIndex(0);
   }, [formState, currentList, addItem]);
 
@@ -141,13 +125,11 @@ export default function CreateMarketList() {
   }, [currentList?.title, setTitle]);
 
   const handleBack = useCallback(() => {
-    // Auto-saves as draft, just navigate back
     router.back();
   }, []);
 
   const handleCheckout = useCallback(() => {
-    // Navigate to checkout screen (implement your checkout logic)
-    // router.push("/checkout");
+    // Implement checkout for editing flow if needed
   }, []);
 
   const renderBackdrop = useCallback(
@@ -176,17 +158,17 @@ export default function CreateMarketList() {
             onChangeText={(t) => setTitle(t)}
             onBlur={handleTitleBlur}
             autoFocus
-            placeholder="New List"
+            placeholder="Edit List"
             style={styles.titleInput}
           />
         ) : (
           <Pressable onPress={() => setIsEditingTitle(true)}>
             <Typography variant="h2" fontWeight={600}>
-              {currentList?.title?.trim() || "New list"}
+              {currentList?.title?.trim() || "Untitled"}
             </Typography>
           </Pressable>
         )}
-        <Button variant="plain" label="Save draft" onPress={handleBack} />
+        <Button variant="plain" label="Save" onPress={handleBack} />
       </View>
 
       <View style={styles.main}>

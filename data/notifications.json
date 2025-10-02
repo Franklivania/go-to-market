@@ -1,0 +1,72 @@
+[
+  {
+    "id": "1",
+    "title": "Welcome to the app!",
+    "body": "Thanks for joining. We hope you enjoy your experience.",
+    "date": "2024-06-01T09:00:00Z",
+    "read": false
+  },
+  {
+    "id": "2",
+    "title": "List Created",
+    "body": "Your first list has been created successfully.",
+    "date": "2024-06-02T14:30:00Z",
+    "read": false
+  },
+  {
+    "id": "3",
+    "title": "Pro Tip",
+    "body": "Tap the bottom right button to create your first list.",
+    "date": "2024-06-03T08:15:00Z",
+    "read": true
+  },
+  {
+    "id": "4",
+    "title": "Update Available",
+    "body": "A new version of the app is available. Update now for the latest features.",
+    "date": "2024-06-04T12:00:00Z",
+    "read": false
+  },
+  {
+    "id": "5",
+    "title": "Order Placed",
+    "body": "Your order #12345 has been placed successfully. We'll notify you when it's on the way.",
+    "date": "2024-06-05T10:20:00Z",
+    "read": false
+  },
+  {
+    "id": "6",
+    "title": "Order Received",
+    "body": "Your order #12345 has been received and is being processed.",
+    "date": "2024-06-05T10:25:00Z",
+    "read": false
+  },
+  {
+    "id": "7",
+    "title": "Order Shipped",
+    "body": "Your order #12345 has been shipped. Track your order for updates.",
+    "date": "2024-06-05T15:00:00Z",
+    "read": false
+  },
+  {
+    "id": "8",
+    "title": "Order Delivered",
+    "body": "Your order #12345 has been delivered. We hope you enjoy your purchase!",
+    "date": "2024-06-06T09:30:00Z",
+    "read": false
+  },
+  {
+    "id": "9",
+    "title": "Order Cancelled",
+    "body": "Your order #12346 has been cancelled. If you have any questions, please contact support.",
+    "date": "2024-06-06T11:00:00Z",
+    "read": false
+  },
+  {
+    "id": "10",
+    "title": "Order Refunded",
+    "body": "A refund for order #12346 has been processed. The amount will be credited to your account soon.",
+    "date": "2024-06-06T12:00:00Z",
+    "read": false
+  }
+]

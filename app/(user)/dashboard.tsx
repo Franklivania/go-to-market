@@ -1,5 +1,5 @@
 import React from "react";
-import { Image, StyleSheet, View } from "react-native";
+import { Image, Pressable, StyleSheet, View } from "react-native";
 import Typography from "@/components/typography";
 import Button from "@/components/button";
 import { Ionicons, MaterialIcons } from "@expo/vector-icons";
@@ -32,7 +32,7 @@ export default function UserDashboard() {
       </View>
 
       <View style={styles.banner}>
-        <View style={{ width: "50%", position: "relative", zIndex: 10 }}>
+        <View style={{ width: "60%", position: "relative", zIndex: 10 }}>
           <Typography variant="h4" style={styles["text-white"]}>
             Welcome {user}{" "}
           </Typography>
@@ -50,14 +50,16 @@ export default function UserDashboard() {
             opacity: 75,
           }}
         />
-        <Image
-          source={require("@/assets/images/avatar.png")}
-          style={{
-            width: 48,
-            height: 48,
-            // borderWidth: 1
-          }}
-        />
+        <Pressable onPress={() => router.push("/(user)/user-settings")}>
+          <Image
+            source={require("@/assets/images/avatar.png")}
+            style={{
+              width: 48,
+              height: 48,
+              // borderWidth: 1
+            }}
+          />
+        </Pressable>
       </View>
 
       <View

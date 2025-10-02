@@ -1,0 +1,20 @@
+[
+  {
+    "id": "1",
+    "title": "Market List 1",
+    "amount": 20000,
+    "status": "Delivered",
+    "timeLabel": "Time delivered",
+    "timeValue": "25 min ago",
+    "highlight": true
+  },
+  {
+    "id": "2",
+    "title": "Start Market List",
+    "amount": 20000,
+    "status": "Reverted",
+    "timeLabel": "Time REVERTED",
+    "timeValue": "12pm, March 21st",
+    "highlight": false
+  }
+]

@@ -42,8 +42,7 @@ export default function CreateMarketList() {
   const listItemsSheetRef = useRef<BottomSheet>(null);
   const snapPoints = useMemo(() => ["50%"], []);
 
-  const { getCurrentList, setTitle, addItem, createOrUseDraft, startFreshDraft, clearItems } =
-    useListStore();
+  const { getCurrentList, setTitle, addItem, startFreshDraft } = useListStore();
   const currentList = getCurrentList();
 
   const [formState, setFormState] = useState({
@@ -146,9 +145,10 @@ export default function CreateMarketList() {
   }, []);
 
   const handleCheckout = useCallback(() => {
-    // Navigate to checkout screen (implement your checkout logic)
-    // router.push("/checkout");
-  }, []);
+    const current = getCurrentList();
+    if (!current) return;
+    router.push({ pathname: "/(user)/order-checkout", params: { prefill: current.id } });
+  }, [getCurrentList]);
 
   const renderBackdrop = useCallback(
     (props: any) => (

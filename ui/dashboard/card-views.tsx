@@ -56,7 +56,10 @@ export default function CardViews() {
           </CardFooter>
         </Card>
       </TouchableOpacity>
-      <TouchableOpacity style={{ width: "100%", maxWidth: "46%" }}>
+      <TouchableOpacity
+        style={{ width: "100%", maxWidth: "46%" }}
+        onPress={() => router.push("/(user)/order-checkout")}
+      >
         <Card style={{ borderWidth: 1, borderColor: colors.yellow[400], gap: 58 }}>
           <CardContent>
             <Typography variant="h1">0</Typography>

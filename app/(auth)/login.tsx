@@ -51,9 +51,9 @@ export default function Login() {
   const handleLogin = () => {
     router.push("/(user)/dashboard");
   };
-  const handleRegsiter = () => {
-    router.push("/(auth)/register");
-  };
+  // const handleRegsiter = () => {
+  //   router.push("/(auth)/register");
+  // };
 
   return (
     <AuthLayout>
@@ -72,12 +72,13 @@ export default function Login() {
           color={colors.orange[500]}
           placeholder="Password"
           borderPosition="bottom"
+          textColor={colors.black[300]}
           backgroundColor={colors.black[50]}
         />
 
         <Button label="LOGIN" width="full" onPress={handleLogin} />
 
-        <Button variant="plain" label="Register" width="fit" onPress={handleRegsiter} />
+        {/* <Button variant="plain" label="Register" width="fit" onPress={handleRegsiter} /> */}
 
         {hasHardware && biometricAvailable && (
           <Button

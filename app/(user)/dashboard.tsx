@@ -1,27 +1,78 @@
-import React from "react";
-import AppContainer from "@/layout/app-container";
-import { Image, StyleSheet, View } from "react-native";
+import React, { useEffect, useState } from "react";
+import { Image, Pressable, StyleSheet, View } from "react-native";
 import Typography from "@/components/typography";
 import Button from "@/components/button";
 import { Ionicons, MaterialIcons } from "@expo/vector-icons";
 import { colors } from "@/constants/Colours";
+import AppLayout from "@/layout/app-layout";
+import CardViews from "@/ui/dashboard/card-views";
+import CreateListButton from "@/ui/dashboard/create-list-button";
+import { router } from "expo-router";
+import {
+  generateDashboardData,
+  getFormattedDateTime,
+  getTimeBasedGreeting,
+} from "@/lib/dashboard-helpers";
 
 export default function UserDashboard() {
   let user = "Franklin";
+  const [dashboardData, setDashboardData] = useState({
+    greeting: "Good Morning",
+    dateTime: "Saturday, 1:56 PM",
+    inspirationalMessage: "It is a beautiful day today, remember to smile",
+    tip: "You can get started by tapping the bottom right button to create your first list",
+  });
+
+  useEffect(() => {
+    const loadDashboardData = async () => {
+      const data = await generateDashboardData();
+      setDashboardData(data);
+    };
+
+    loadDashboardData();
+  }, []);
+
+  // Live clock: update time (and greeting) at the start of each minute
+  useEffect(() => {
+    const updateClock = () => {
+      setDashboardData((prev) => ({
+        ...prev,
+        dateTime: getFormattedDateTime(),
+        greeting: getTimeBasedGreeting(),
+      }));
+    };
+
+    // Initial sync
+    updateClock();
+
+    const now = new Date();
+    const msUntilNextMinute = (60 - now.getSeconds()) * 1000 - now.getMilliseconds();
+    const startTimeout = setTimeout(() => {
+      updateClock();
+      const minuteInterval = setInterval(updateClock, 60 * 1000);
+      // Store interval id on timeout object for cleanup via closure
+      (updateClock as any).intervalId = minuteInterval;
+    }, msUntilNextMinute);
+
+    return () => {
+      clearTimeout(startTimeout);
+      if ((updateClock as any).intervalId) clearInterval((updateClock as any).intervalId);
+    };
+  }, []);
 
   return (
-    <AppContainer style={{ display: "flex", gap: 12 }}>
+    <AppLayout style={{ display: "flex", gap: 12 }}>
       <View style={styles.header}>
         <View>
           <Typography variant="h3" fontWeight={300}>
-            Good Morning
+            {dashboardData.greeting}
           </Typography>
-          <Typography>Saturday, 1:56 PM</Typography>
+          <Typography>{dashboardData.dateTime}</Typography>
         </View>
         <Button
           variant="outline"
           size="icon"
-          onPress={() => {}}
+          onPress={() => router.push("/notifications")}
           style={{ borderColor: colors.black[600] }}
         >
           <Ionicons name="notifications-outline" size={24} />
@@ -29,12 +80,12 @@ export default function UserDashboard() {
       </View>
 
       <View style={styles.banner}>
-        <View style={{ width: "50%", position: "relative", zIndex: 10 }}>
+        <View style={{ width: "60%", position: "relative", zIndex: 10 }}>
           <Typography variant="h4" style={styles["text-white"]}>
             Welcome {user}{" "}
           </Typography>
           <Typography variant="body" style={styles.paragraph}>
-            It is a beautiful day today, remember to smile
+            {dashboardData.inspirationalMessage}
           </Typography>
         </View>
 
@@ -47,14 +98,16 @@ export default function UserDashboard() {
             opacity: 75,
           }}
         />
-        <Image
-          source={require("@/assets/images/avatar.png")}
-          style={{
-            width: 48,
-            height: 48,
-            // borderWidth: 1
-          }}
-        />
+        <Pressable onPress={() => router.push("/(user)/user-settings")}>
+          <Image
+            source={require("@/assets/images/avatar.webp")}
+            style={{
+              width: 48,
+              height: 48,
+              // borderWidth: 1
+            }}
+          />
+        </Pressable>
       </View>
 
       <View
@@ -86,10 +139,17 @@ export default function UserDashboard() {
           Pro tip:
         </Typography>
         <Typography variant="caption" style={{ width: "75%" }}>
-          You can get started by tapping the bottom right button to create your first list
+          {dashboardData.tip}
         </Typography>
       </View>
-    </AppContainer>
+
+      <View style={{ marginTop: 12 }}>
+        <Typography variant="h4">Let&apos;s get you up to speed</Typography>
+        <CardViews />
+      </View>
+
+      <CreateListButton />
+    </AppLayout>
   );
 }
 

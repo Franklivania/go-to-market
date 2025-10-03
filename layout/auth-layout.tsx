@@ -37,8 +37,8 @@ const styles = StyleSheet.create({
   logo: {
     position: "absolute",
     top: 78,
-    width: 120,
-    height: 120,
+    width: 80,
+    height: 80,
     alignSelf: "center",
   },
 });

@@ -21,6 +21,7 @@ export default function VerifyOTP() {
         color={colors.orange[600]}
         borderPosition="bottom"
         placeholder="Enter OTP"
+        textColor={colors.black[300]}
         style={{ width: "100%" }}
       />
 

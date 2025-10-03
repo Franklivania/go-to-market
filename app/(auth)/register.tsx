@@ -25,6 +25,7 @@ export default function Register() {
           variant="outline"
           borderPosition="bottom"
           color={colors.orange[600]}
+          textColor={colors.black[300]}
           placeholder="Full name"
         />
         <FormInput
@@ -32,6 +33,7 @@ export default function Register() {
           variant="outline"
           borderPosition="bottom"
           color={colors.orange[600]}
+          textColor={colors.black[300]}
           placeholder="Email"
         />
         <FormInput
@@ -39,6 +41,7 @@ export default function Register() {
           variant="outline"
           borderPosition="bottom"
           color={colors.orange[600]}
+          textColor={colors.black[300]}
           placeholder="Phone Number"
         />
         <FormInput
@@ -46,6 +49,7 @@ export default function Register() {
           variant="outline"
           borderPosition="bottom"
           color={colors.orange[600]}
+          textColor={colors.black[300]}
           placeholder="Password"
         />
 

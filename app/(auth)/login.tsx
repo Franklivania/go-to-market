@@ -72,6 +72,7 @@ export default function Login() {
           color={colors.orange[500]}
           placeholder="Password"
           borderPosition="bottom"
+          textColor={colors.black[300]}
           backgroundColor={colors.black[50]}
         />
 

@@ -20,6 +20,7 @@ import {
   MeasurementUnit,
 } from "@/store/useListStore";
 import ListItemsSheet from "@/ui/dashboard/list-items-view";
+import { colors } from "@/constants/Colours";
 // import ListItemsSheet from "@/components/ListItemsSheet";
 
 type BottomSheetType = "category" | "unit" | null;
@@ -198,6 +199,7 @@ export default function CreateMarketList() {
           value={formState.name}
           onChangeText={(name) => setFormState((s) => ({ ...s, name }))}
           error={errors.name}
+          textColor={colors.black[300]}
         />
 
         <Pressable onPress={() => openSheet("category")}>
@@ -209,6 +211,7 @@ export default function CreateMarketList() {
             editable={false}
             rightIcon={<Ionicons name="chevron-down" size={18} />}
             pointerEvents="none"
+            textColor={colors.black[300]}
           />
         </Pressable>
 
@@ -219,6 +222,7 @@ export default function CreateMarketList() {
               variant="filled"
               label="Quantity"
               placeholder="0"
+              textColor={colors.black[300]}
               value={String(formState.quantity)}
               onChangeText={(quantityText) =>
                 setFormState((s) => ({ ...s, quantity: Number(quantityText) || 0 }))
@@ -233,6 +237,7 @@ export default function CreateMarketList() {
                 type="text"
                 variant="filled"
                 label="Unit"
+                textColor={colors.black[300]}
                 value={formState.unit.toUpperCase()}
                 editable={false}
                 rightIcon={<Ionicons name="chevron-down" size={18} />}
@@ -247,6 +252,7 @@ export default function CreateMarketList() {
           variant="filled"
           label="Price"
           placeholder="e.g. 10000"
+          textColor={colors.black[300]}
           value={String(formState.price)}
           onChangeText={(priceText) =>
             setFormState((s) => ({ ...s, price: Number(priceText) || 0 }))
@@ -260,6 +266,7 @@ export default function CreateMarketList() {
           placeholder="Other things to know..."
           minRows={5}
           maxRows={12}
+          textColor={colors.black[300]}
           value={formState.notes}
           onChangeText={(notes) => setFormState((s) => ({ ...s, notes }))}
         />

@@ -61,3 +61,31 @@ jobs:
       # Run Expo prebuild or check config
       - name: Validate Expo project
         run: npx expo-doctor
+
+  android-build:
+    name: Android EAS Build (main only)
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🏗 Setup repo
+        uses: actions/checkout@v4
+
+      - name: 🏗 Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: 🏗 Setup EAS
+        uses: expo/expo-github-action@v8
+        with:
+          eas-version: latest
+          token: ${{ secrets.GTM_EAS_TOKEN }}
+
+      - name: 📦 Install dependencies
+        run: npm install
+
+      - name: 🚀 Build Android (APK)
+        run: eas build --platform android --profile preview --non-interactive
+        # Alternative (App Bundle) — uncomment to build AAB via production profile
+        # run: eas build --platform android --profile production --non-interactive

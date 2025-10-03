@@ -8,7 +8,11 @@ import AppLayout from "@/layout/app-layout";
 import CardViews from "@/ui/dashboard/card-views";
 import CreateListButton from "@/ui/dashboard/create-list-button";
 import { router } from "expo-router";
-import { generateDashboardData } from "@/lib/dashboard-helpers";
+import {
+  generateDashboardData,
+  getFormattedDateTime,
+  getTimeBasedGreeting,
+} from "@/lib/dashboard-helpers";
 
 export default function UserDashboard() {
   let user = "Franklin";
@@ -26,6 +30,34 @@ export default function UserDashboard() {
     };
 
     loadDashboardData();
+  }, []);
+
+  // Live clock: update time (and greeting) at the start of each minute
+  useEffect(() => {
+    const updateClock = () => {
+      setDashboardData((prev) => ({
+        ...prev,
+        dateTime: getFormattedDateTime(),
+        greeting: getTimeBasedGreeting(),
+      }));
+    };
+
+    // Initial sync
+    updateClock();
+
+    const now = new Date();
+    const msUntilNextMinute = (60 - now.getSeconds()) * 1000 - now.getMilliseconds();
+    const startTimeout = setTimeout(() => {
+      updateClock();
+      const minuteInterval = setInterval(updateClock, 60 * 1000);
+      // Store interval id on timeout object for cleanup via closure
+      (updateClock as any).intervalId = minuteInterval;
+    }, msUntilNextMinute);
+
+    return () => {
+      clearTimeout(startTimeout);
+      if ((updateClock as any).intervalId) clearInterval((updateClock as any).intervalId);
+    };
   }, []);
 
   return (

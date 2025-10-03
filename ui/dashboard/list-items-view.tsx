@@ -130,7 +130,9 @@ const ListItemsSheet = forwardRef<BottomSheet, ListItemsSheetProps>(({ onCheckou
               <Button
                 width="full"
                 label="Checkout"
-                onPress={() => onCheckout}
+                onPress={() => {
+                  if (onCheckout) onCheckout();
+                }}
                 style={styles.checkoutBtn}
               />
             </View>

@@ -1,5 +1,5 @@
 import { ScrollView, View, Pressable } from "react-native";
-import React, { useMemo, useState } from "react";
+import React, { useState } from "react";
 import AppContainer from "@/layout/app-container";
 import BackButton from "@/components/back-button";
 import Typography from "@/components/typography";

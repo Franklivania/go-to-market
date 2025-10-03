@@ -1,14 +1,41 @@
-import { View, StyleSheet } from "react-native";
-import React from "react";
+import { View, StyleSheet, Switch } from "react-native";
+import React, { useState, useEffect } from "react";
 import { colors } from "@/constants/Colours";
 import { Image } from "expo-image";
 import HapticPressable from "@/components/haptic-pressable";
 import Typography from "@/components/typography";
 import { Ionicons } from "@expo/vector-icons";
 import { router } from "expo-router";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function UserSettings() {
   let user = "Franklin";
+  const [isSplashDisabled, setIsSplashDisabled] = useState(false);
+
+  // Load splash screen preference on mount
+  useEffect(() => {
+    const loadSplashPreference = async () => {
+      try {
+        const savedPreference = await AsyncStorage.getItem("splashScreensDisabled");
+        if (savedPreference !== null) {
+          setIsSplashDisabled(JSON.parse(savedPreference));
+        }
+      } catch (error) {
+        console.error("Error loading splash preference:", error);
+      }
+    };
+    loadSplashPreference();
+  }, []);
+
+  // Save splash screen preference when changed
+  const handleSplashToggle = async (value: boolean) => {
+    try {
+      setIsSplashDisabled(value);
+      await AsyncStorage.setItem("splashScreensDisabled", JSON.stringify(value));
+    } catch (error) {
+      console.error("Error saving splash preference:", error);
+    }
+  };
 
   return (
     <View style={{ width: "100%", alignSelf: "center", alignItems: "center", marginTop: 120 }}>
@@ -47,6 +74,16 @@ export default function UserSettings() {
           <Typography>Change password</Typography>
           <Ionicons name="lock-closed-outline" size={24} />
         </HapticPressable>
+
+        <View style={styles.button}>
+          <Typography>Disable SplashScreens</Typography>
+          <Switch
+            value={isSplashDisabled}
+            onValueChange={handleSplashToggle}
+            trackColor={{ false: colors.white[600], true: colors.green[500] }}
+            thumbColor={isSplashDisabled ? colors.white[100] : colors.white[400]}
+          />
+        </View>
       </View>
     </View>
   );

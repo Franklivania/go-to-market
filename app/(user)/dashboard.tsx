@@ -68,7 +68,7 @@ export default function UserDashboard() {
         />
         <Pressable onPress={() => router.push("/(user)/user-settings")}>
           <Image
-            source={require("@/assets/images/avatar.png")}
+            source={require("@/assets/images/avatar.webp")}
             style={{
               width: 48,
               height: 48,

@@ -20,6 +20,7 @@ import {
   MeasurementUnit,
 } from "@/store/useListStore";
 import ListItemsSheet from "@/ui/dashboard/list-items-view";
+import { colors } from "@/constants/Colours";
 
 type BottomSheetType = "category" | "unit" | null;
 
@@ -179,6 +180,7 @@ export default function EditMarketList() {
           variant="filled"
           label="Item Name"
           placeholder="Rice, Garri, Eggs, Milk"
+          textColor={colors.black[300]}
           value={formState.name}
           onChangeText={(name) => setFormState((s) => ({ ...s, name }))}
           error={errors.name}
@@ -190,6 +192,7 @@ export default function EditMarketList() {
             variant="filled"
             label="Select Type"
             value={ItemCategoryLabels[formState.category]}
+            textColor={colors.black[300]}
             editable={false}
             rightIcon={<Ionicons name="chevron-down" size={18} />}
             pointerEvents="none"
@@ -203,6 +206,7 @@ export default function EditMarketList() {
               variant="filled"
               label="Quantity"
               placeholder="0"
+              textColor={colors.black[300]}
               value={String(formState.quantity)}
               onChangeText={(quantityText) =>
                 setFormState((s) => ({ ...s, quantity: Number(quantityText) || 0 }))
@@ -217,6 +221,7 @@ export default function EditMarketList() {
                 type="text"
                 variant="filled"
                 label="Unit"
+                textColor={colors.black[300]}
                 value={formState.unit.toUpperCase()}
                 editable={false}
                 rightIcon={<Ionicons name="chevron-down" size={18} />}
@@ -231,6 +236,7 @@ export default function EditMarketList() {
           variant="filled"
           label="Price"
           placeholder="e.g. 10000"
+          textColor={colors.black[300]}
           value={String(formState.price)}
           onChangeText={(priceText) =>
             setFormState((s) => ({ ...s, price: Number(priceText) || 0 }))
@@ -242,6 +248,7 @@ export default function EditMarketList() {
           variant="filled"
           label="Notes"
           placeholder="Other things to know..."
+          textColor={colors.black[300]}
           minRows={5}
           maxRows={12}
           value={formState.notes}

@@ -61,6 +61,7 @@ export default function CompleteOnboarding() {
           variant="outline"
           borderPosition="bottom"
           color={colors.orange[600]}
+          textColor={colors.black[300]}
           placeholder="Nationality"
           value={country ?? ""}
           editable={false}
@@ -84,6 +85,7 @@ export default function CompleteOnboarding() {
           variant="outline"
           borderPosition="bottom"
           color={colors.orange[600]}
+          textColor={colors.black[300]}
           placeholder="State/Region"
           value={state ?? ""}
           editable={false}
@@ -97,6 +99,7 @@ export default function CompleteOnboarding() {
         variant="outline"
         borderPosition="bottom"
         color={colors.orange[600]}
+        textColor={colors.black[300]}
         placeholder="House Number"
         style={{ width: "100%" }}
       />
@@ -105,6 +108,7 @@ export default function CompleteOnboarding() {
         variant="outline"
         borderPosition="bottom"
         color={colors.orange[600]}
+        textColor={colors.black[300]}
         placeholder="Address"
         style={{ width: "100%" }}
       />

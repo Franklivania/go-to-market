@@ -9,6 +9,7 @@ import {
   TextStyle,
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
+import { colors } from "@/constants/Colours";
 
 export type FormInputVariant = "outline" | "plain" | "filled" | "underlined";
 export type FormInputRadius = "none" | "sm" | "md" | "lg" | "xl" | "full";
@@ -110,6 +111,16 @@ export default function FormInput({
     color: textColor ?? color,
   };
 
+  // derive placeholder color that won't get flipped by OS theme
+  const isHex7 = (value?: string) =>
+    !!value && typeof value === "string" && value.startsWith("#") && value.length === 7;
+
+  const placeholderColor = isHex7(textColor)
+    ? (textColor as string) + "80"
+    : isHex7(color)
+      ? (color as string) + "80"
+      : (textColor ?? color ?? colors.black[100]); // fallback if non-hex named colors are used
+
   // decide keyboard type
   let keyboardType: TextInputProps["keyboardType"] = "default";
   if (type === "email") keyboardType = "email-address";
@@ -129,6 +140,7 @@ export default function FormInput({
           keyboardType={keyboardType}
           secureTextEntry={hidden}
           multiline={type === "multiline"}
+          placeholderTextColor={placeholderColor}
           {...props}
         />
         {type === "password" && (

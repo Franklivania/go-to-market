@@ -129,8 +129,10 @@ export default function EditMarketList() {
   }, []);
 
   const handleCheckout = useCallback(() => {
-    // Implement checkout for editing flow if needed
-  }, []);
+    const current = getCurrentList();
+    if (!current) return;
+    router.push({ pathname: "/(user)/order-checkout", params: { prefill: current.id } });
+  }, [getCurrentList]);
 
   const renderBackdrop = useCallback(
     (props: any) => (

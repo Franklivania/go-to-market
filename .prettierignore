@@ -13,3 +13,5 @@ yarn.lock
 .idea/ 
 eslint.config.js
 constants/
+android/
+ios/

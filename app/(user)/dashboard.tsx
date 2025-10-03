@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Image, Pressable, StyleSheet, View } from "react-native";
 import Typography from "@/components/typography";
 import Button from "@/components/button";
@@ -8,18 +8,34 @@ import AppLayout from "@/layout/app-layout";
 import CardViews from "@/ui/dashboard/card-views";
 import CreateListButton from "@/ui/dashboard/create-list-button";
 import { router } from "expo-router";
+import { generateDashboardData } from "@/lib/dashboard-helpers";
 
 export default function UserDashboard() {
   let user = "Franklin";
+  const [dashboardData, setDashboardData] = useState({
+    greeting: "Good Morning",
+    dateTime: "Saturday, 1:56 PM",
+    inspirationalMessage: "It is a beautiful day today, remember to smile",
+    tip: "You can get started by tapping the bottom right button to create your first list",
+  });
+
+  useEffect(() => {
+    const loadDashboardData = async () => {
+      const data = await generateDashboardData();
+      setDashboardData(data);
+    };
+
+    loadDashboardData();
+  }, []);
 
   return (
     <AppLayout style={{ display: "flex", gap: 12 }}>
       <View style={styles.header}>
         <View>
           <Typography variant="h3" fontWeight={300}>
-            Good Morning
+            {dashboardData.greeting}
           </Typography>
-          <Typography>Saturday, 1:56 PM</Typography>
+          <Typography>{dashboardData.dateTime}</Typography>
         </View>
         <Button
           variant="outline"
@@ -37,7 +53,7 @@ export default function UserDashboard() {
             Welcome {user}{" "}
           </Typography>
           <Typography variant="body" style={styles.paragraph}>
-            It is a beautiful day today, remember to smile
+            {dashboardData.inspirationalMessage}
           </Typography>
         </View>
 
@@ -91,7 +107,7 @@ export default function UserDashboard() {
           Pro tip:
         </Typography>
         <Typography variant="caption" style={{ width: "75%" }}>
-          You can get started by tapping the bottom right button to create your first list
+          {dashboardData.tip}
         </Typography>
       </View>
 

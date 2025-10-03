@@ -7,6 +7,7 @@ import { useEffect } from "react";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { QueryClient, QueryClientProvider, onlineManager } from "@tanstack/react-query";
 import NetInfo from "@react-native-community/netinfo";
+import { PaystackProvider } from "react-native-paystack-webview";
 
 import { useReactQueryFocus } from "@/hooks/useReactQueryFocus";
 
@@ -40,10 +41,17 @@ export default function RootLayout() {
   return (
     <QueryClientProvider client={queryClient}>
       <ThemeProvider>
-        <GestureHandlerRootView style={{ flex: 1 }}>
-          <StatusBar style="auto" />
-          <Stack screenOptions={{ headerShown: false }} />
-        </GestureHandlerRootView>
+        <PaystackProvider
+          debug
+          publicKey="pk_test_010faa0bfa8c68abfcb50675ff4fe38b8d9ef64d"
+          currency="NGN"
+          defaultChannels={["card", "bank_transfer", "bank", "ussd"]}
+        >
+          <GestureHandlerRootView style={{ flex: 1 }}>
+            <StatusBar style="auto" />
+            <Stack screenOptions={{ headerShown: false }} />
+          </GestureHandlerRootView>
+        </PaystackProvider>
       </ThemeProvider>
     </QueryClientProvider>
   );

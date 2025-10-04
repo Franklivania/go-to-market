@@ -48,7 +48,7 @@ export default function RootLayout() {
           defaultChannels={["card", "bank_transfer", "bank", "ussd"]}
         >
           <GestureHandlerRootView style={{ flex: 1 }}>
-            <StatusBar style="auto" />
+            <StatusBar style="dark" />
             <Stack screenOptions={{ headerShown: false }} />
           </GestureHandlerRootView>
         </PaystackProvider>

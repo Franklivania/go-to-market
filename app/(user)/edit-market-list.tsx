@@ -253,6 +253,7 @@ export default function EditMarketList() {
           maxRows={12}
           value={formState.notes}
           onChangeText={(notes) => setFormState((s) => ({ ...s, notes }))}
+          style={{ color: colors.black[500] }}
         />
 
         <Button width="full" label="Add to List" onPress={handleAddItem} />

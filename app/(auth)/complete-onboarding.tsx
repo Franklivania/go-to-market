@@ -66,7 +66,7 @@ export default function CompleteOnboarding() {
           value={country ?? ""}
           editable={false}
           rightIcon={<Ionicons name="chevron-down" size={18} color={colors.orange[600]} />}
-          style={{ width: "100%" }}
+          style={{ width: "100%", color: colors.black[500] }}
         />
       </TouchableOpacity>
 
@@ -90,7 +90,7 @@ export default function CompleteOnboarding() {
           value={state ?? ""}
           editable={false}
           rightIcon={<Ionicons name="chevron-down" size={18} color={colors.orange[600]} />}
-          style={{ width: "100%" }}
+          style={{ width: "100%", color: colors.black[500] }}
         />
       </TouchableOpacity>
 
@@ -101,7 +101,7 @@ export default function CompleteOnboarding() {
         color={colors.orange[600]}
         textColor={colors.black[300]}
         placeholder="House Number"
-        style={{ width: "100%" }}
+        style={{ width: "100%", color: colors.black[500] }}
       />
       <FormInput
         type="text"
@@ -110,7 +110,7 @@ export default function CompleteOnboarding() {
         color={colors.orange[600]}
         textColor={colors.black[300]}
         placeholder="Address"
-        style={{ width: "100%" }}
+        style={{ width: "100%", color: colors.black[500] }}
       />
 
       <Button

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Image, Pressable, StyleSheet, View } from "react-native";
+import { Image, Pressable, ScrollView, StyleSheet, View } from "react-native";
 import Typography from "@/components/typography";
 import Button from "@/components/button";
 import { Ionicons, MaterialIcons } from "@expo/vector-icons";
@@ -143,10 +143,10 @@ export default function UserDashboard() {
         </Typography>
       </View>
 
-      <View style={{ marginTop: 12 }}>
+      <ScrollView style={{ marginTop: 12 }}>
         <Typography variant="h4">Let&apos;s get you up to speed</Typography>
         <CardViews />
-      </View>
+      </ScrollView>
 
       <CreateListButton />
     </AppLayout>

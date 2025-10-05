@@ -22,7 +22,7 @@ export default function VerifyOTP() {
         borderPosition="bottom"
         placeholder="Enter OTP"
         textColor={colors.black[300]}
-        style={{ width: "100%" }}
+        style={{ width: "100%", color: colors.black[500] }}
       />
 
       <Button

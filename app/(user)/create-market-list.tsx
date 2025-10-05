@@ -269,6 +269,7 @@ export default function CreateMarketList() {
           textColor={colors.black[300]}
           value={formState.notes}
           onChangeText={(notes) => setFormState((s) => ({ ...s, notes }))}
+          style={{ color: colors.black[500] }}
         />
 
         <Button width="full" label="Add to List" onPress={handleAddItem} />
